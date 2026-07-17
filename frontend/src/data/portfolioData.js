@@ -231,7 +231,7 @@ export const codingProfiles = [
   {
     id: "github",
     platform: "GitHub",
-    stats: [{ label: "Contributions", value: "500+" }],
+    stats: [],
     url: "https://github.com/Tharun-S-28",
   },
 ];
