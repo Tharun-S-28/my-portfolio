@@ -7,13 +7,22 @@ const app = express();
 
 const allowedOrigins = [
   "https://my-portfolio-o1c7hncnf-tharuntharun.vercel.app",
+  "https://my-portfolio-nine-gamma-4ptrnw9a27.vercel.app",
   process.env.CLIENT_ORIGIN,
   "http://localhost:3000",
 ].filter(Boolean);
 
 const corsOptions = {
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin) {
+      callback(null, true);
+      return;
+    }
+
+    if (
+      allowedOrigins.includes(origin) ||
+      /(^|\.)vercel\.app$/i.test(origin) && origin.includes("my-portfolio")
+    ) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
