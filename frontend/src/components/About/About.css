@@ -1,0 +1,108 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-photo-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--color-border);
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-photo-frame:hover .about-photo {
+  transform: scale(1.05);
+}
+
+.about-objective {
+  color: var(--color-text-dim);
+  margin: 18px 0 28px;
+  max-width: 620px;
+}
+
+.about-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.about-detail-card {
+  padding: 20px;
+}
+
+.about-detail-card h4 {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.about-detail-card p {
+  color: var(--color-text-dim);
+  font-size: 0.92rem;
+}
+
+.about-cgpa {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  color: var(--color-text) !important;
+}
+
+.about-coursework {
+  margin-bottom: 22px;
+}
+
+.about-coursework h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.about-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  font-size: 0.82rem;
+  color: var(--color-text-dim);
+}
+
+.chip-accent {
+  border-color: rgba(0, 229, 255, 0.35);
+  color: var(--accent-cyan);
+}
+
+.about-actions {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-photo-frame {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .about-details {
+    grid-template-columns: 1fr;
+  }
+}
