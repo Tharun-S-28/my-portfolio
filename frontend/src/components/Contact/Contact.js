@@ -4,7 +4,7 @@ import Reveal from "../Reveal";
 import RippleButton from "../RippleButton";
 import "./Contact.css";
 
-const API_BASE = process.env.REACT_APP_API_BASE_URL || "https://my-portfolio-backend-ochre-nu.vercel.app";
+const API_BASE = process.env.REACT_APP_API_BASE_URL || "https://my-portfolio-backend.vercel.app";
 
 const initialForm = { name: "", email: "", subject: "", message: "" };
 
