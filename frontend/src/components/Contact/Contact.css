@@ -79,6 +79,41 @@
   animation: spin-slow 0.7s linear infinite;
 }
 
+.contact-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%) translateY(20px);
+  min-width: 320px;
+  max-width: calc(100% - 40px);
+  padding: 16px 22px;
+  border-radius: 18px;
+  background: rgba(4, 17, 26, 0.95);
+  color: #fff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 999;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contact-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.contact-toast.success {
+  border: 1px solid rgba(110, 247, 176, 0.24);
+}
+
+.contact-toast.error {
+  border: 1px solid rgba(255, 118, 118, 0.28);
+}
+
 .form-status {
   font-size: 0.88rem;
   text-align: center;

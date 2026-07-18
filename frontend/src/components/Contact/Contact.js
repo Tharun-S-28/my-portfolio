@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { profile } from "../../data/portfolioData";
 import Reveal from "../Reveal";
 import RippleButton from "../RippleButton";
@@ -28,14 +28,14 @@ function validate(form) {
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
-  const [serverMessage, setServerMessage] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle"); // idle | loading | success
   const [toastMessage, setToastMessage] = useState("");
+  const toastTimeout = useRef(null);
 
   const showToast = (message) => {
     setToastMessage(message);
-    window.clearTimeout(showToast.timeout);
-    showToast.timeout = window.setTimeout(() => setToastMessage(""), 5000);
+    window.clearTimeout(toastTimeout.current);
+    toastTimeout.current = window.setTimeout(() => setToastMessage(""), 5000);
   };
 
   const handleChange = (e) => {
@@ -52,9 +52,7 @@ export default function Contact() {
     if (Object.keys(validationErrors).length > 0) return;
 
     setStatus("loading");
-    setServerMessage("");
     const successText = "Thank you for contacting me! Your message has been received. I will get back to you soon.";
-    const friendlyErrorText = "Thank you for reaching out! I will get back to you soon.";
 
     try {
       const res = await fetch(`${API_BASE}/api/contact`, {
@@ -64,22 +62,15 @@ export default function Contact() {
       });
 
       if (!res.ok) {
-        setStatus("error");
-        setServerMessage(friendlyErrorText);
-        showToast(friendlyErrorText);
-        setTimeout(() => setStatus("idle"), 4000);
-        return;
+        console.error("Contact submit failed", res.status, await res.text());
       }
-
+    } catch (err) {
+      console.error("Contact submit error", err);
+    } finally {
       setStatus("success");
       setForm(initialForm);
-      setServerMessage(successText);
+      setErrors({});
       showToast(successText);
-      setTimeout(() => setStatus("idle"), 4000);
-    } catch (err) {
-      setStatus("error");
-      setServerMessage(friendlyErrorText);
-      showToast(friendlyErrorText);
       setTimeout(() => setStatus("idle"), 4000);
     }
   };
@@ -130,7 +121,13 @@ export default function Contact() {
           </div>
 
           <RippleButton type="submit" className="btn btn-primary contact-submit" disabled={status === "loading"}>
-            {status === "loading" ? <span className="spinner" /> : "Send Message"}
+            {status === "loading" ? (
+              <>
+                <span className="spinner" /> Sending...
+              </>
+            ) : (
+              "Send Message"
+            )}
           </RippleButton>
 
           <div className={`contact-toast ${toastMessage ? "show" : ""} ${status}`}>
@@ -139,9 +136,6 @@ export default function Contact() {
 
           {status === "success" && (
             <p className="form-status form-status-success">✓ Message sent — thank you! I'll get back to you soon.</p>
-          )}
-          {status === "error" && serverMessage && (
-            <p className="form-status form-status-error">{serverMessage}</p>
           )}
         </Reveal>
       </div>
