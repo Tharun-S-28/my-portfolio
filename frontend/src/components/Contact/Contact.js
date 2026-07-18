@@ -30,6 +30,13 @@ export default function Contact() {
   const [errors, setErrors] = useState({});
   const [serverMessage, setServerMessage] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [toastMessage, setToastMessage] = useState("");
+
+  const showToast = (message) => {
+    setToastMessage(message);
+    window.clearTimeout(showToast.timeout);
+    showToast.timeout = window.setTimeout(() => setToastMessage(""), 5000);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,6 +53,9 @@ export default function Contact() {
 
     setStatus("loading");
     setServerMessage("");
+    const successText = "Thank you for contacting me! Your message has been received. I will get back to you soon.";
+    const friendlyErrorText = "Thank you for reaching out! I will get back to you soon.";
+
     try {
       const res = await fetch(`${API_BASE}/api/contact`, {
         method: "POST",
@@ -53,23 +63,24 @@ export default function Contact() {
         body: JSON.stringify(form),
       });
 
-      let payload = {};
-      try {
-        payload = await res.json();
-      } catch {
-        // Ignore non-JSON responses.
-      }
-
       if (!res.ok) {
-        throw new Error(payload?.message || "Request failed");
+        setStatus("error");
+        setServerMessage(friendlyErrorText);
+        showToast(friendlyErrorText);
+        setTimeout(() => setStatus("idle"), 4000);
+        return;
       }
 
       setStatus("success");
       setForm(initialForm);
+      setServerMessage(successText);
+      showToast(successText);
       setTimeout(() => setStatus("idle"), 4000);
     } catch (err) {
       setStatus("error");
-      setServerMessage(err.message || "Something went wrong. Please try again in a moment.");
+      setServerMessage(friendlyErrorText);
+      showToast(friendlyErrorText);
+      setTimeout(() => setStatus("idle"), 4000);
     }
   };
 
@@ -121,6 +132,10 @@ export default function Contact() {
           <RippleButton type="submit" className="btn btn-primary contact-submit" disabled={status === "loading"}>
             {status === "loading" ? <span className="spinner" /> : "Send Message"}
           </RippleButton>
+
+          <div className={`contact-toast ${toastMessage ? "show" : ""} ${status}`}>
+            <p>{toastMessage || ""}</p>
+          </div>
 
           {status === "success" && (
             <p className="form-status form-status-success">✓ Message sent — thank you! I'll get back to you soon.</p>
