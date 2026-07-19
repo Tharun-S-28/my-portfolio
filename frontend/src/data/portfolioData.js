@@ -28,7 +28,7 @@ export const profile = {
 
 export const about = {
   objective:
-    "Final-year Computer Science undergraduate who enjoys turning ambiguous problems into shipped, working software. I care about clean architecture as much as clean UI — a system should be easy to reason about a year from now, not just easy to demo today.",
+    "Pre-final-year Computer Science undergraduate who enjoys turning ambiguous problems into shipped, working software. I care about clean architecture as much as clean UI — a system should be easy to reason about a year from now, not just easy to demo today.",
   education: {
     degree: "B.E. Computer Science & Engineering",
     cgpa: "8.71",

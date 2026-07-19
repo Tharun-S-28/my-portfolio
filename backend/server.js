@@ -1,16 +1,19 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const connectDB = require("./config/db");
 const contactRoute = require("./routes/contact");
 
 const app = express();
 
-const allowedOrigins = [
+const allowedOrigins = new Set([
   "https://my-portfolio-o1c7hncnf-tharuntharun.vercel.app",
   "https://my-portfolio-nine-gamma-4ptrnw9a27.vercel.app",
-  process.env.CLIENT_ORIGIN,
   "http://localhost:3000",
-].filter(Boolean);
+]);
+if (process.env.CLIENT_ORIGIN) {
+  allowedOrigins.add(process.env.CLIENT_ORIGIN);
+}
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -19,10 +22,17 @@ const corsOptions = {
       return;
     }
 
-    if (
-      allowedOrigins.includes(origin) ||
-      /(^|\.)vercel\.app$/i.test(origin) && origin.includes("my-portfolio")
-    ) {
+    const isAllowedOrigin = allowedOrigins.has(origin);
+    const isVercelPreviewOrigin = (() => {
+      try {
+        const hostname = new URL(origin).hostname;
+        return hostname.endsWith(".vercel.app") && hostname.includes("my-portfolio");
+      } catch {
+        return false;
+      }
+    })();
+
+    if (isAllowedOrigin || isVercelPreviewOrigin) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
@@ -33,9 +43,20 @@ const corsOptions = {
   credentials: true,
 };
 
+const dbInitialization = connectDB();
+
 app.use(cors(corsOptions));
 app.options("/api/contact", cors(corsOptions));
 app.use(express.json({ limit: "50kb" }));
+
+app.use(async (_req, _res, next) => {
+  try {
+    await dbInitialization;
+  } catch (err) {
+    console.error("[server] MongoDB initialization middleware error:", err);
+  }
+  next();
+});
 
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok" });

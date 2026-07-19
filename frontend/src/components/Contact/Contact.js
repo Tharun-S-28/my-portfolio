@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { profile } from "../../data/portfolioData";
 import Reveal from "../Reveal";
 import RippleButton from "../RippleButton";
@@ -28,31 +28,45 @@ function validate(form) {
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | loading | success
-  const [toastMessage, setToastMessage] = useState("");
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [feedback, setFeedback] = useState({ type: "idle", message: "" });
   const toastTimeout = useRef(null);
 
-  const showToast = (message) => {
-    setToastMessage(message);
+  useEffect(() => {
+    return () => window.clearTimeout(toastTimeout.current);
+  }, []);
+
+  const showFeedback = (type, message, duration = 4000) => {
+    setFeedback({ type, message });
     window.clearTimeout(toastTimeout.current);
-    toastTimeout.current = window.setTimeout(() => setToastMessage(""), 5000);
+    toastTimeout.current = window.setTimeout(() => {
+      setFeedback({ type: "idle", message: "" });
+      setStatus("idle");
+    }, duration);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((f) => ({ ...f, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
-    setServerMessage("");
+    if (feedback.message) {
+      setFeedback({ type: "idle", message: "" });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate(form);
     setErrors(validationErrors);
-    if (Object.keys(validationErrors).length > 0) return;
+
+    if (Object.keys(validationErrors).length > 0) {
+      setStatus("idle");
+      setFeedback({ type: "idle", message: "" });
+      return;
+    }
 
     setStatus("loading");
-    const successText = "Thank you for contacting me! Your message has been received. I will get back to you soon.";
+    setFeedback({ type: "idle", message: "" });
 
     try {
       const res = await fetch(`${API_BASE}/api/contact`, {
@@ -62,16 +76,19 @@ export default function Contact() {
       });
 
       if (!res.ok) {
-        console.error("Contact submit failed", res.status, await res.text());
+        throw new Error(`Contact submit failed with status ${res.status}`);
       }
-    } catch (err) {
-      console.error("Contact submit error", err);
-    } finally {
-      setStatus("success");
+
       setForm(initialForm);
       setErrors({});
-      showToast(successText);
-      setTimeout(() => setStatus("idle"), 4000);
+      setStatus("success");
+      showFeedback("success", "Thank you for contacting me! I will get back to you soon.");
+    } catch (error) {
+      console.error(error);
+      setForm(initialForm);
+      setErrors({});
+      setStatus("success");
+      showFeedback("success", "Thank you for contacting me! I will get back to you soon.");
     }
   };
 
@@ -130,13 +147,9 @@ export default function Contact() {
             )}
           </RippleButton>
 
-          <div className={`contact-toast ${toastMessage ? "show" : ""} ${status}`}>
-            <p>{toastMessage || ""}</p>
+          <div className={`contact-toast ${feedback.message ? "show" : ""} ${feedback.type}`}>
+            <p>{feedback.message}</p>
           </div>
-
-          {status === "success" && (
-            <p className="form-status form-status-success">✓ Message sent — thank you! I'll get back to you soon.</p>
-          )}
         </Reveal>
       </div>
     </section>
