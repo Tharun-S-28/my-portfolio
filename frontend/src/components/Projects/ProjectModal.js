@@ -35,14 +35,16 @@ export default function ProjectModal({ project, onClose }) {
         </ul>
       </ModalSection>
 
-      <div className="hero-actions" style={{ marginTop: 24 }}>
-        <RippleButton href={project.github} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
-          GitHub
-        </RippleButton>
-        <RippleButton href={project.demo} target="_blank" rel="noreferrer" className="btn btn-primary btn-sm">
-          Live Demo
-        </RippleButton>
-      </div>
+      {project.id !== "connectwave" && (
+        <div className="hero-actions" style={{ marginTop: 24 }}>
+          <RippleButton href={project.github} target="_blank" rel="noreferrer" className="btn btn-ghost btn-sm">
+            GitHub
+          </RippleButton>
+          <RippleButton href={project.demo} target="_blank" rel="noreferrer" className="btn btn-primary btn-sm">
+            Live Demo
+          </RippleButton>
+        </div>
+      )}
     </Modal>
   );
 }

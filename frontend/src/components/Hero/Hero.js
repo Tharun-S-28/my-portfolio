@@ -7,7 +7,7 @@ const socialIcons = [
   { key: "github", label: "GitHub", glyph: "GH" },
   { key: "linkedin", label: "LinkedIn", glyph: "in" },
   { key: "leetcode", label: "LeetCode", glyph: "LC" },
-  { key: "gfg", label: "GeeksforGeeks", glyph: "G4G" },
+  { key: "codechef", label: "CodeChef", glyph: "CC" },
   { key: "email", label: "Email", glyph: "@" },
 ];
 

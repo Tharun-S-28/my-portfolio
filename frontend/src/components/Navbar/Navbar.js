@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { navLinks, profile } from "../../data/portfolioData";
-import { useTheme } from "../../context/ThemeContext";
 import "./Navbar.css";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -58,14 +56,6 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar-actions">
-          <button
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label="Toggle dark and light mode"
-            data-cursor="pointer"
-          >
-            {theme === "dark" ? "☀️" : "🌙"}
-          </button>
           <button
             className={`navbar-burger ${open ? "navbar-burger-open" : ""}`}
             onClick={() => setOpen((o) => !o)}

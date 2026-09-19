@@ -23,9 +23,6 @@ export default function Projects() {
         <div className="projects-grid">
           {projects.map((p, i) => (
             <Reveal key={p.id} delay={i * 90} variant="zoom" className="project-card card">
-              <div className="project-image-wrap">
-                <img src={p.image} alt={p.title} className="project-image" loading="lazy" />
-              </div>
               <div className="project-body">
                 <h3 className="project-title">{p.title}</h3>
                 <div className="about-chips project-stack">

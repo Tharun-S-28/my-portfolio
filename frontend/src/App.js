@@ -1,4 +1,3 @@
-import { ThemeProvider } from "./context/ThemeContext";
 import Loader from "./components/Loader/Loader";
 import BackgroundFX from "./components/BackgroundFX/BackgroundFX";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
@@ -20,7 +19,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <ThemeProvider>
+    <>
       <Loader />
       <BackgroundFX />
       <CustomCursor />
@@ -44,7 +43,7 @@ function App() {
 
       <Footer />
       <ScrollToTop />
-    </ThemeProvider>
+    </>
   );
 }
 

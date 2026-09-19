@@ -21,7 +21,7 @@ export const profile = {
     github: "https://github.com/Tharun-S-28",
     linkedin: "https://www.linkedin.com/in/tharun-s-287871333",
     leetcode: "https://leetcode.com/u/_Tharun_S/",
-    gfg: "https://www.geeksforgeeks.org/profile/tharunjtvfo?from=explore",
+    codechef: "https://www.codechef.com/users/tharunth",
     email: "mailto:tharunjeyaknp@gmail.com",
   },
 };
@@ -31,7 +31,7 @@ export const about = {
     "Pre-final-year Computer Science undergraduate who enjoys turning ambiguous problems into shipped, working software. I care about clean architecture as much as clean UI — a system should be easy to reason about a year from now, not just easy to demo today.",
   education: {
     degree: "B.E. Computer Science & Engineering",
-    cgpa: "8.71",
+    cgpa: "8.75",
     coursework: [
       "Data Structures & Algorithms",
       "Database Management Systems",
@@ -88,89 +88,98 @@ export const skills = {
 
 export const projects = [
   {
-    id: "bank-management-system",
-    title: "Bank Management System",
-    stack: ["MongoDB", "Express", "React", "Node"],
+    id: "jobverse",
+    title: "JobVerse – MERN Stack Job Portal",
+    stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT", "bcrypt", "Multer"],
     short:
-      "A full-stack banking simulation with account management, deposits/withdrawals, transaction history, and an admin dashboard.",
+      "Built and deployed a full-stack job portal using the MERN stack that connects candidates with recruiters through a complete job-search and recruitment workflow.",
     features: [
-      "Secure account creation & authentication",
-      "Deposit, withdraw & fund-transfer flows",
-      "Transaction history with filters",
-      "Admin dashboard for account oversight",
+      "Candidate & Recruiter authentication",
+      "Search and filter jobs",
+      "Resume upload while applying",
+      "Application status tracking",
+      "Recruiter job posting, editing & management",
+      "Applicant management for recruiters",
+      "JWT authentication & role-based access",
+      "Responsive and modern UI",
     ],
     architecture:
-      "React SPA communicates with an Express REST API secured by JWT; MongoDB stores accounts and transactions with Mongoose schemas enforcing balance integrity via transaction-safe updates.",
+      "Building JobVerse provided practical experience in full-stack development, REST APIs, authentication, database management, file uploads, and frontend-backend integration.",
     problem:
-      "Most student banking demos skip real constraints like race conditions on balance updates and proper input validation — this project treats those as first-class requirements, not an afterthought.",
+      "The project was built to handle a complete hiring workflow from candidate discovery to recruiter management, with a focus on a clean end-to-end experience.",
     challenges:
-      "Handling concurrent balance updates safely and designing a transaction schema that stays queryable as history grows.",
+      "Managing authentication, file uploads, role-based flows, and recruiter operations while keeping the app experience responsive and user-friendly.",
     learnings:
-      "Practical experience with MongoDB transactions, REST API design, and structuring a React app around real financial-state constraints.",
+      "Practical experience with MERN-stack architecture, secure auth flows, file upload handling, and database-driven recruitment workflows.",
     future: [
-      "Add interest calculation & scheduled statements",
-      "Role-based access for tellers vs admins",
-      "Downloadable PDF statements",
+      "Add in-app messaging between recruiters and applicants",
+      "Introduce analytics dashboards for hiring insights",
+      "Improve job recommendation and matching features",
     ],
-    github: "https://github.com/your-github/bank-management-system",
-    demo: "#",
+    github: "https://lnkd.in/gMMjfVve",
+    demo: "https://lnkd.in/gHQNvdt6",
     image: "/assets/projects/bank-management.jpg",
   },
   {
-    id: "resugenius",
-    title: "ResuGenius — AI Resume Analyzer",
-    stack: ["React", "Node", "Express", "MongoDB"],
+    id: "connectwave",
+    title: "ConnectWave – Instant Messaging Platform",
+    stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.IO"],
     short:
-      "An AI-assisted tool that scores resumes against a target job description and gives actionable, section-by-section feedback.",
+      "ConnectWave is a real-time instant messaging platform built to provide a smooth and interactive communication experience with modern chat functionality.",
     features: [
-      "Resume upload & parsing",
-      "Job-description keyword match scoring",
-      "Section-wise improvement suggestions",
-      "Exportable feedback report",
+      "Real-time messaging",
+      "User authentication",
+      "Online presence",
+      "Typing indicators",
+      "Read receipts",
+      "Reactions",
+      "Profile discovery",
+      "Responsive chat interactions",
     ],
     architecture:
-      "React front end uploads resumes to an Express API; parsing and scoring logic runs server-side, with results persisted to MongoDB so users can revisit past analyses.",
+      "The platform provides real-time communication with modern chat features and a responsive interface designed for smooth user interaction.",
     problem:
-      "Job seekers rarely get specific, structural feedback on their resumes — most tools either give a vague score or nothing at all.",
+      "Modern chat apps need fast, interactive communication flows while keeping the experience intuitive and responsive across devices.",
     challenges:
-      "Reliably parsing varied resume formats and turning raw text matches into feedback that actually reads as useful advice.",
+      "Synchronizing live updates, message states, and presence indicators while preserving a smooth real-time user experience.",
     learnings:
-      "Text-processing pipelines, designing scoring heuristics that are explainable, and building UI that communicates 'why' behind a score.",
+      "Hands-on experience with real-time communication patterns, event-driven backend logic, and interactive frontend state management.",
     future: [
-      "Support DOCX and multi-page PDFs more robustly",
-      "Tailor suggestions per industry",
-      "Add a resume version comparison view",
+      "Add group chat and voice calling",
+      "Enable media sharing and file transfer",
+      "Improve message search and moderation tools",
     ],
-    github: "https://github.com/your-github/resugenius",
+    github: "https://github.com/Tharun-S-28",
     demo: "#",
     image: "/assets/projects/resugenius.jpg",
   },
   {
     id: "personal-portfolio",
-    title: "Personal Portfolio Website",
-    stack: ["React", "CSS", "JavaScript"],
+    title: "Personal Portfolio",
+    stack: ["React.js", "JavaScript", "HTML", "CSS"],
     short:
-      "This site — a hand-built, animation-rich portfolio with zero UI frameworks, built to showcase both design taste and engineering discipline.",
+      "A modern interactive developer portfolio created to showcase my skills, projects, certifications, achievements, education, and development journey.",
     features: [
-      "Fully custom component library",
-      "Scroll-reveal & counter animations built from scratch",
-      "Dark/light theme with persisted preference",
-      "Accessible, fully responsive layout",
+      "Responsive portfolio layout",
+      "Smooth animations and scroll interactions",
+      "Project showcase and achievement highlights",
+      "Resume access and networking links",
+      "Interactive custom cursor",
     ],
     architecture:
-      "Component-driven React app with a shared data layer (this file), custom hooks for scroll-reveal and counters, and hand-written CSS using variables for theming — no CSS framework.",
+      "The portfolio focuses on responsive design, smooth animations, interactive sections, project showcases, achievement highlights, resume access, and a custom interactive cursor.",
     problem:
-      "Template portfolios are easy to spot. The goal here was a site that reads as engineered, not assembled.",
+      "The goal was to create a polished personal portfolio that communicates technical depth while remaining modern and accessible.",
     challenges:
-      "Building smooth, framework-free animations (reveal-on-scroll, modals, custom cursor) that still perform well on low-end devices.",
+      "Balancing animation, readability, and performance while keeping a clean and professional portfolio experience.",
     learnings:
-      "Deeper command of the Intersection Observer API, CSS custom properties for theming, and performance-conscious animation.",
+      "Improved skills in component design, section storytelling, responsive UI work, and presentation-focused frontend development.",
     future: [
-      "Add a small CMS-backed blog section",
-      "Automated Lighthouse CI checks",
-      "i18n support",
+      "Add a blog section",
+      "Expand case studies and project write-ups",
+      "Introduce richer motion and portfolio interactions",
     ],
-    github: "https://github.com/your-github/personal-portfolio",
+    github: "https://github.com/Tharun-S-28",
     demo: "#",
     image: "/assets/projects/portfolio.jpg",
   },
@@ -207,6 +216,45 @@ export const achievements = [
       "Built a working prototype in a time-boxed hackathon, placing second among competing teams for functionality and presentation.",
     postUrl: "https://www.linkedin.com/posts/tharun-s-287871333_kreativ26-hackathon-thinkandtwist-ugcPost-7430857871237709824-DAxc/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFP0j0cBtptqb8PwV_K37N1AbUtD8Ax8P6Y",
   },
+  {
+    id: "logic-verse",
+    medal: "🥇",
+    title: "1st – Logic Verse",
+    org: "SRM Madurai College of Engineering & Technology",
+    date: "2026",
+    description: "Duo Coding Event · 2 Rounds · HackerRank Final",
+    postUrl: "https://lnkd.in/p/gi76mqrK",
+  },
+  {
+    id: "think-and-twist",
+    medal: "🥇",
+    title: "1st Prize – Think and Twist",
+    org: "Kamaraj College of Engineering & Technology · 2026",
+    date: "2026",
+    description:
+      "Secured 1st Prize in the Think and Twist logical thinking event at Kamaraj College of Engineering & Technology. The event challenged participants with problem-solving and logical reasoning tasks, providing an opportunity to demonstrate analytical thinking under time constraints.",
+    postUrl: "https://lnkd.in/p/gnma6A7A",
+  },
+  {
+    id: "code-insight",
+    medal: "🥇",
+    title: "1st – Code Insight",
+    org: "KSR College of Engineering & Technology · 2026",
+    date: "2026",
+    description:
+      "Secured 1st Prize in the Code Insight solo coding event at KSR College of Engineering & Technology. Successfully completed two rounds of coding challenges, demonstrating problem-solving ability, logical thinking, and coding skills.",
+    postUrl: "https://lnkd.in/p/g3Z4bMqS",
+  },
+  {
+    id: "blind-coding",
+    medal: "🥇",
+    title: "1st – Blind Coding",
+    org: "Sri Vidya College of Engineering & Technology · 2026",
+    date: "2026",
+    description:
+      "Secured 1st Prize in the Blind Coding event at Sri Vidya College of Engineering & Technology as part of a trio team. The event tested coding ability and problem-solving skills without relying on the usual visual coding environment.",
+    postUrl: "https://lnkd.in/p/gRsi-pch",
+  },
 ];
 
 export const codingProfiles = [
@@ -214,19 +262,19 @@ export const codingProfiles = [
     id: "leetcode",
     platform: "LeetCode",
     stats: [
-      { label: "Problems Solved", value: "300+" },
-      { label: "Streak Badge", value: "100 Days" },
-      { label: "Contest Rating", value: "1400" },
+      { label: "Problems Solved", value: "400+" },
+      { label: "Days Streak", value: "200 Days" },
     ],
     url: "https://leetcode.com/u/_Tharun_S/",
   },
   {
-    id: "gfg",
-    platform: "GeeksforGeeks",
+    id: "codechef",
+    platform: "CodeChef",
     stats: [
       { label: "Problems Solved", value: "100+" },
+      { label: "Badge", value: "Bronze Badge" },
     ],
-    url: "https://www.geeksforgeeks.org/profile/tharunjtvfo?from=explore",
+    url: "https://www.codechef.com/users/tharunth",
   },
   {
     id: "github",
@@ -271,29 +319,49 @@ export const certificates = [
     title: "Oracle Java Certification",
     issuer: "Oracle",
     highlights: [
-      "Strengthened core Java programming fundamentals",
-      "Practiced object-oriented design and problem solving",
-      "Built confidence for backend-focused development work",
+      "Covers core Java programming concepts and fundamentals.",
+      "Builds understanding of object-oriented programming and Java syntax.",
+      "Strengthens problem-solving and basic Java development skills.",
     ],
   },
   {
     id: "web-dev",
-    title: "HTML, CSS & JavaScript",
+    title: "Web Development Certification",
     issuer: "Course Certification",
     highlights: [
-      "Learned responsive UI structure and layout techniques",
-      "Improved styling and interaction skills for modern web pages",
-      "Gained hands-on experience with frontend development basics",
+      "Covers the fundamentals of HTML, CSS, and JavaScript.",
+      "Focuses on building structured, styled, and interactive web pages.",
+      "Strengthens frontend development and responsive design skills.",
     ],
   },
   {
-    id: "ai-ml",
-    title: "Foundations of AI & ML",
-    issuer: "Course Certification",
+    id: "aws-academy",
+    title: "AWS Academy",
+    issuer: "Generative AI Foundations",
     highlights: [
-      "Explored the basics of artificial intelligence and machine learning",
-      "Learned how data-driven models are built and evaluated",
-      "Developed a stronger foundation for analytical thinking",
+      "Introduces fundamental concepts of generative artificial intelligence.",
+      "Covers basic AI concepts, applications, and generative AI technologies.",
+      "Builds foundational knowledge for working with AI-based solutions.",
+    ],
+  },
+  {
+    id: "snowflake",
+    title: "Snowflake Certifications",
+    issuer: "Data Warehousing, Data Lakes & Fundamentals",
+    highlights: [
+      "Covers fundamental concepts of modern data warehousing.",
+      "Introduces data lakes and Snowflake data platform concepts.",
+      "Builds understanding of cloud-based data storage and analytics.",
+    ],
+  },
+  {
+    id: "mongodb",
+    title: "MongoDB Certifications",
+    issuer: "MongoDB Essentials, Building AI Agent",
+    highlights: [
+      "Covers MongoDB fundamentals and document-based database concepts.",
+      "Introduces practical concepts for working with MongoDB databases.",
+      "Includes foundational concepts related to building AI agents with MongoDB.",
     ],
   },
 ];
@@ -303,13 +371,14 @@ export const education = [
     id: "be-cse",
     level: "B.E. Computer Science & Engineering",
     institute: "PSNA College of Engineering and Technology",
-    grade: "CGPA: 8.71",
+    grade: "CGPA: 8.75",
     year: "2022 – 2026",
   },
   {
     id: "hsc",
     level: "HSC",
     institute: "SMBM Public School",
+    grade: "75%",
     year: "2024",
   },
   {
@@ -322,12 +391,12 @@ export const education = [
 ];
 
 export const stats = [
-  { label: "Problems Solved", value: 300, suffix: "+" },
-  { label: "LeetCode Streak", value: 100, suffix: " Days" },
-  { label: "CGPA", value: 8.71, suffix: "" },
+  { label: "Problems Solved", value: 400, suffix: "+" },
+  { label: "LeetCode Streak", value: 200, suffix: " Days" },
+  { label: "CGPA", value: 8.75, suffix: "" },
   { label: "Projects Built", value: 3, suffix: "+" },
   { label: "Internships", value: 2, suffix: "" },
-  { label: "Competition Wins", value: 3, suffix: "" },
+  { label: "Competition Wins", value: 7, suffix: "" },
 ];
 
 export const navLinks = [

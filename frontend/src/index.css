@@ -1,23 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
-  /* ===== Color tokens (dark — default) ===== */
-  --color-bg: #050816;
-  --color-bg-alt: #080b1c;
-  --color-card: #0b1120;
-  --color-card-hover: #101830;
+  --color-bg: #000000;
+  --color-bg-alt: #050505;
+  --color-card: #111111;
+  --color-card-hover: #181818;
   --color-border: rgba(255, 255, 255, 0.08);
-  --color-text: #f5f7fb;
-  --color-text-dim: #a7b0c3;
-  --color-text-faint: #6b7488;
-  --accent-cyan: #00e5ff;
-  --accent-violet: #7c4dff;
+  --color-text: #ffffff;
+  --color-text-dim: #b3b3b3;
+  --color-text-faint: #808080;
+  --accent-cyan: #e50914;
+  --accent-violet: #b20710;
   --accent-gradient: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
-  --glass-bg: rgba(11, 17, 32, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.45);
-  --shadow-glow-cyan: 0 0 30px rgba(0, 229, 255, 0.25);
-  --shadow-glow-violet: 0 0 30px rgba(124, 77, 255, 0.25);
+  --glass-bg: rgba(10, 10, 10, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --shadow-glow-cyan: 0 0 30px rgba(229, 9, 20, 0.24);
+  --shadow-glow-violet: 0 0 30px rgba(178, 7, 16, 0.2);
 
   /* ===== Typography ===== */
   --font-display: "Sora", "Segoe UI", sans-serif;
@@ -33,21 +32,6 @@
   --nav-h: 76px;
 
   color-scheme: dark;
-}
-
-[data-theme="light"] {
-  --color-bg: #f3f5fb;
-  --color-bg-alt: #eaedf7;
-  --color-card: #ffffff;
-  --color-card-hover: #f5f7ff;
-  --color-border: rgba(11, 17, 32, 0.08);
-  --color-text: #0b1120;
-  --color-text-dim: #454e63;
-  --color-text-faint: #757e94;
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(11, 17, 32, 0.08);
-  --shadow-soft: 0 20px 50px rgba(11, 17, 32, 0.12);
-  color-scheme: light;
 }
 
 * {
@@ -188,7 +172,7 @@ h4 {
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: rgba(0, 229, 255, 0.3);
+  border-color: rgba(229, 9, 20, 0.42);
 }
 
 /* ===== Buttons ===== */
@@ -213,17 +197,17 @@ h4 {
 
 .btn-primary {
   background: var(--accent-gradient);
-  color: #04101a;
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 12px 30px rgba(0, 229, 255, 0.3);
+  box-shadow: 0 12px 30px rgba(229, 9, 20, 0.3);
   transform: translateY(-2px);
 }
 
 .btn-ghost {
-  background: transparent;
-  border: 1px solid var(--color-border);
+  background: rgba(17, 17, 17, 0.6);
+  border: 1px solid rgba(229, 9, 20, 0.4);
   color: var(--color-text);
 }
 
