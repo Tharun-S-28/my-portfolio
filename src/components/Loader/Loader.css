@@ -1,0 +1,337 @@
+.hacker-loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #02050e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hacker-loader-fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hacker-glitch-exit {
+  transform: scale(1.08);
+  filter: brightness(1.5) contrast(1.2);
+  animation: warp-breach 0.4s ease-out forwards;
+}
+
+@keyframes warp-breach {
+  0% {
+    clip-path: inset(0 0 0 0);
+    filter: brightness(1);
+  }
+  30% {
+    clip-path: inset(15% 0 10% 0);
+    filter: brightness(1.8) hue-rotate(45deg);
+  }
+  60% {
+    clip-path: inset(45% 0 50% 0);
+    filter: brightness(2.5);
+  }
+  100% {
+    clip-path: inset(50% 50% 50% 50%);
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+/* Matrix Background Canvas */
+.matrix-bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* CRT Scanline Mesh */
+.loader-scanline-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.45) 50%
+    ),
+    radial-gradient(circle, transparent 60%, rgba(0, 0, 0, 0.85) 100%);
+  background-size: 100% 4px, 100% 100%;
+  z-index: 1;
+}
+
+/* Hacker Terminal Card */
+.hacker-terminal-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 620px;
+  background: rgba(4, 18, 10, 0.94);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 255, 136, 0.25);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: card-appear 0.4s ease-out;
+}
+
+@keyframes card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Terminal Header */
+.hacker-terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.18);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.76rem;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 7px;
+}
+
+.terminal-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red {
+  background: #ef4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+}
+
+.dot-yellow {
+  background: #f59e0b;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
+}
+
+.dot-green {
+  background: #00ff88;
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.6);
+}
+
+.terminal-hud-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.terminal-hud-icon {
+  color: #00ff88;
+}
+
+.terminal-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #00ff88;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+/* Brand Banner */
+.hacker-brand-banner {
+  text-align: center;
+  padding: 10px 0 6px;
+}
+
+.hacker-ascii-name {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hacker-bracket {
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+}
+
+.hacker-glow-name {
+  background: linear-gradient(135deg, #ffffff 40%, #00ff88 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+}
+
+.hacker-brand-sub {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: #e2fada;
+  margin-top: 6px;
+}
+
+/* Live Logs Stream */
+.hacker-log-stream {
+  background: rgba(2, 10, 5, 0.88);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-height: 140px;
+  max-height: 160px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+}
+
+.hacker-log-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+  color: #ffffff;
+}
+
+.log-prompt {
+  color: #00ff88;
+  font-weight: 700;
+}
+
+.log-text {
+  word-break: break-word;
+}
+
+.log-cursor {
+  color: #00ff88;
+  animation: cyber-blink 0.6s infinite;
+}
+
+/* Progress Matrix Block */
+.hacker-progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hacker-progress-labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  color: #e2fada;
+}
+
+.progress-sys-stat,
+.progress-auth-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.text-cyan-accent {
+  color: #00ff88;
+}
+
+.hacker-bar-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 136, 0.25);
+}
+
+.hacker-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ff88, #10b981, #ffffff);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.85);
+  transition: width 0.12s ease-out;
+}
+
+/* Footer & Bypass */
+.hacker-terminal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 255, 136, 0.15);
+}
+
+.hacker-shortcut-tip {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  color: #86efac;
+  letter-spacing: 0.05em;
+}
+
+.btn-hacker-skip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  color: #00ff88;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-hacker-skip:hover {
+  background: #00ff88;
+  color: #020804;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .hacker-terminal-card {
+    padding: 18px 20px;
+    gap: 14px;
+  }
+  .hacker-ascii-name {
+    font-size: 1.4rem;
+  }
+  .hacker-brand-sub {
+    font-size: 0.68rem;
+  }
+  .hacker-terminal-footer {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}

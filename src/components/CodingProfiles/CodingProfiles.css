@@ -1,0 +1,203 @@
+.coding-profiles-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0;
+}
+
+.coding-profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+}
+
+.coding-profile-card {
+  background: rgba(6, 22, 13, 0.85);
+  border-radius: 20px;
+  padding: 36px;
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  min-height: 380px;
+}
+
+.card-leetcode {
+  border: 1px solid rgba(255, 161, 22, 0.3);
+}
+
+.card-leetcode:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 161, 22, 0.65);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 161, 22, 0.2);
+}
+
+.card-codechef {
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.card-codechef:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 255, 136, 0.65);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 136, 0.2);
+}
+
+.profile-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.platform-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.platform-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-icon-lc {
+  color: #ffa116;
+}
+
+.platform-icon-cc {
+  color: #00ff88;
+}
+
+.platform-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.platform-handle {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: #86efac;
+}
+
+.profile-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: #ffffff;
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.profile-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 24px;
+}
+
+/* Metrics List */
+.profile-metrics-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.profile-metric-box {
+  background: rgba(3, 12, 7, 0.8);
+  border: 1px solid rgba(0, 255, 136, 0.18);
+  border-radius: 14px;
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.metric-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metric-icon-val {
+  color: #00ff88;
+}
+
+.metric-icon-badge {
+  color: #00ff88;
+}
+
+.metric-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-number {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.metric-label {
+  font-size: 0.74rem;
+  color: #86efac;
+  margin-top: 3px;
+  font-family: var(--font-mono, monospace);
+}
+
+/* Visit Profile Action Button */
+.profile-action-wrapper {
+  margin-top: auto;
+}
+
+.btn-visit-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.22);
+  transition: all 0.25s ease;
+}
+
+.card-leetcode .btn-visit-profile:hover {
+  background: linear-gradient(135deg, rgba(255, 161, 22, 0.3), rgba(234, 88, 12, 0.3));
+  border-color: #ffa116;
+  box-shadow: 0 4px 20px rgba(255, 161, 22, 0.25);
+  color: #ffffff;
+}
+
+.card-codechef .btn-visit-profile:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.25), rgba(5, 150, 105, 0.25));
+  border-color: #00ff88;
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.25);
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .profile-metrics-list {
+    grid-template-columns: 1fr;
+  }
+}
