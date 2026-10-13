@@ -1,0 +1,47 @@
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.certificate-card {
+  overflow: hidden;
+}
+
+.certificate-body {
+  padding: 20px;
+}
+
+.certificate-body h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--color-text);
+}
+
+.certificate-body p {
+  color: var(--color-text-faint);
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.certificate-summary {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  color: var(--color-text-dim);
+  font-size: 0.9rem;
+}
+
+.certificate-summary li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.certificate-summary li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
