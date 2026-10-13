@@ -1,0 +1,219 @@
+.internships-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0;
+}
+
+.internships-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.internship-timeline-row {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 24px;
+}
+
+.internship-time-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-badge-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+.time-icon {
+  color: #00ff88;
+}
+
+.time-connector-line {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(0, 255, 136, 0.4), rgba(0, 255, 136, 0.05));
+  margin-top: 12px;
+}
+
+.internship-card {
+  background: rgba(6, 22, 13, 0.85);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 18px;
+  padding: 30px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.internship-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 255, 136, 0.55);
+}
+
+.intern-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.company-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.company-name {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.workmode-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.intern-position {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #00ff88;
+}
+
+.duration-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  color: #e2fada;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.intern-description {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 20px;
+  font-style: italic;
+  border-left: 2px solid #00ff88;
+  padding-left: 14px;
+}
+
+.intern-tech-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.tech-stack-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: #86efac;
+  font-family: var(--font-mono, monospace);
+}
+
+.tech-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.intern-chip {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  color: #86efac;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.22);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.intern-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 255, 136, 0.12);
+}
+
+.intern-verify-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: #86efac;
+}
+
+.text-success {
+  color: #00ff88;
+}
+
+.intern-verify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgba(0, 255, 136, 0.15);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.intern-verify-btn:hover {
+  background: rgba(0, 255, 136, 0.3);
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+@media (max-width: 680px) {
+  .internship-timeline-row {
+    grid-template-columns: 1fr;
+  }
+  .internship-time-marker {
+    display: none;
+  }
+  .intern-card-header {
+    flex-direction: column;
+  }
+  .intern-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

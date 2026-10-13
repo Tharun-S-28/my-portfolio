@@ -1,0 +1,393 @@
+/* ==========================================================================
+   Cinematic Portfolio Welcome Screen — Dark Green & White Hacker Aesthetic
+   ========================================================================== */
+
+.welcome-screen-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #050b08;
+  color: #f5f7f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+  user-select: none;
+  animation: welcomeFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Exit Transition */
+.welcome-screen-overlay.welcome-screen-exiting {
+  animation: welcomeFadeOut 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes welcomeFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes welcomeFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.06);
+    filter: blur(10px);
+  }
+}
+
+/* Background Atmosphere */
+.welcome-canvas-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.welcome-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(
+    circle at center,
+    rgba(5, 11, 8, 0.2) 0%,
+    rgba(5, 11, 8, 0.85) 70%,
+    #050b08 100%
+  );
+  pointer-events: none;
+}
+
+.welcome-glow-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(57, 255, 136, 0.12) 0%,
+    rgba(0, 200, 83, 0.04) 50%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  z-index: 2;
+  pointer-events: none;
+  animation: orbPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes orbPulse {
+  0% {
+    transform: scale(0.9) translate(-10px, -10px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.15) translate(10px, 10px);
+    opacity: 1;
+  }
+}
+
+/* Main Welcome Card */
+.welcome-card-container {
+  position: relative;
+  z-index: 10;
+  max-width: 680px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 32px;
+  background: rgba(11, 23, 16, 0.7);
+  border: 1px solid #1c3828;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9),
+    0 0 45px rgba(57, 255, 136, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: cardSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Top System Badge */
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(57, 255, 136, 0.08);
+  border: 1px solid rgba(57, 255, 136, 0.25);
+  border-radius: 999px;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: #39ff88;
+  margin-bottom: 24px;
+}
+
+.welcome-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #39ff88;
+  box-shadow: 0 0 10px #39ff88;
+  animation: dotBlink 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes dotBlink {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Headline */
+.welcome-headline {
+  font-family: "Sora", "Segoe UI", sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #f5f7f5;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.welcome-headline-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #39ff88 85%, #00c853 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: 0 0 35px rgba(57, 255, 136, 0.25);
+}
+
+/* Subtitle */
+.welcome-subtitle {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  color: #a3b8aa;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+
+/* Terminal Animation Box */
+.welcome-terminal-box {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(5, 11, 8, 0.9);
+  border: 1px solid #1c3828;
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.8rem;
+  color: #d1dfd6;
+  text-align: left;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.terminal-mini-dots {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.mini-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.mini-dot-red {
+  background: #ff5f56;
+}
+
+.mini-dot-yellow {
+  background: #ffbd2e;
+}
+
+.mini-dot-green {
+  background: #27c93f;
+}
+
+.terminal-typing-content {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #a3b8aa;
+}
+
+.terminal-prompt-prefix {
+  color: #39ff88;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.terminal-typing-text {
+  color: #f5f7f5;
+}
+
+.terminal-cursor-blink {
+  display: inline-block;
+  width: 7px;
+  height: 13px;
+  background: #39ff88;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: cursorBlink 0.9s infinite step-start;
+}
+
+@keyframes cursorBlink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.1%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Enter Portfolio Button */
+.welcome-enter-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 38px;
+  background: linear-gradient(135deg, #39ff88, #00c853);
+  color: #050b08;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(57, 255, 136, 0.7);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 25px rgba(57, 255, 136, 0.4),
+    0 0 15px rgba(0, 200, 83, 0.3);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.25s ease;
+  overflow: hidden;
+}
+
+.welcome-enter-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 35px rgba(57, 255, 136, 0.6),
+    0 0 25px rgba(0, 200, 83, 0.5);
+  background: linear-gradient(135deg, #4dff96, #00e65f);
+}
+
+.welcome-enter-btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn-arrow-icon {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.welcome-enter-btn:hover .btn-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Footer Tag */
+.welcome-footer-text {
+  position: absolute;
+  bottom: 24px;
+  z-index: 10;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: #a3b8aa;
+  opacity: 0.75;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.welcome-footer-text:hover {
+  opacity: 1;
+  color: #39ff88;
+}
+
+/* Keyboard Hint */
+.welcome-key-hint {
+  margin-top: 14px;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.68rem;
+  color: #a3b8aa;
+  opacity: 0.6;
+  letter-spacing: 0.04em;
+}
+
+.key-badge {
+  padding: 2px 6px;
+  border: 1px solid #1c3828;
+  border-radius: 4px;
+  background: rgba(5, 11, 8, 0.8);
+  color: #39ff88;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .welcome-card-container {
+    padding: 32px 20px;
+    border-radius: 20px;
+  }
+
+  .welcome-headline {
+    font-size: 1.7rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 22px;
+  }
+
+  .welcome-terminal-box {
+    font-size: 0.74rem;
+    padding: 10px 14px;
+    margin-bottom: 26px;
+  }
+
+  .welcome-enter-btn {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 0.9rem;
+  }
+
+  .welcome-footer-text {
+    bottom: 16px;
+    font-size: 0.65rem;
+  }
+}

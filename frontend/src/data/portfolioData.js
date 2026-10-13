@@ -1,405 +1,375 @@
-// Central content store — edit this file to update every section of the site.
-// Replace placeholder links/images with your real ones.
-
-import profileImage from "../assets/profile.jpg";
+// Data Store for Tharun S Portfolio
+// All verified personal data, education, skills, projects, achievements, coding profiles, internships, certificates
 
 export const profile = {
-  name: "Tharun S",
+  name: "THARUN S",
   roles: [
     "Computer Science Engineering Student",
-    "MERN Stack Developer",
-    "Java Enthusiast",
-    "DSA Enthusiast",
+    "Full-Stack Developer",
+    "Java Programmer",
+    "Problem Solver",
   ],
+  headline: "Building Ideas Into Real-World Digital Experiences.",
   tagline:
-    "I design and build reliable web products end to end — from a Java-backed API to a pixel-considered React interface.",
+    "I build full-stack web applications, solve algorithmic problems, and continuously improve my engineering skills through projects, competitive coding, and hands-on development.",
+  college: "PSNA College of Engineering and Technology (PSNACET), Dindigul, Tamil Nadu",
+  cgpa: "8.74",
   resumeUrl: "/resume/Tharun_S_Resume.pdf",
-  photo: profileImage,
+  photo: "/assets/profile.jpg",
   email: "tharunjeyaknp@gmail.com",
+  phone: "+91 7305865241",
   location: "Tamil Nadu, India",
   social: {
     github: "https://github.com/Tharun-S-28",
-    linkedin: "https://www.linkedin.com/in/tharun-s-287871333",
+    linkedin: "https://www.linkedin.com/in/tharun-s-287871333/",
     leetcode: "https://leetcode.com/u/_Tharun_S/",
     codechef: "https://www.codechef.com/users/tharunth",
     email: "mailto:tharunjeyaknp@gmail.com",
+    phone: "tel:+917305865241",
   },
 };
 
-export const about = {
-  objective:
-    "Pre-final-year Computer Science undergraduate who enjoys turning ambiguous problems into shipped, working software. I care about clean architecture as much as clean UI — a system should be easy to reason about a year from now, not just easy to demo today.",
-  education: {
-    degree: "B.E. Computer Science & Engineering",
-    cgpa: "8.75",
-    coursework: [
-      "Data Structures & Algorithms",
-      "Database Management Systems",
-      "Operating Systems",
-      "Object-Oriented Programming (Java)",
-      "Computer Networks",
-      "Software Engineering",
-    ],
-  },
-  currentFocus:
-    "Deepening my grasp of system design and shipping full-stack MERN projects with production-grade auth, validation, and deployment pipelines.",
-  currentStack: [
-    "React.js",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Java",
-    "Git/GitHub",
+export const aboutData = {
+  bio: [
+    "I am a motivated Computer Science Engineering student at PSNA College of Engineering and Technology (PSNACET), Dindigul, with a strong passion for programming, algorithmic problem-solving, and full-stack software development.",
+    "I continuously hone my analytical thinking and software craftsmanship through competitive programming, algorithmic problem-solving in Java, and architecting robust web applications with the MERN stack.",
   ],
-  strengths: ["Problem Solving", "Teamwork", "Communication", "Quick Learner"],
-};
-
-export const skills = {
-  Programming: [
-    { name: "Java", level: 85 },
-    { name: "C", level: 75 },
+  education: [
+    {
+      institution: "PSNA College of Engineering and Technology (PSNACET)",
+      location: "Dindigul, Tamil Nadu",
+      degree: "B.E. in Computer Science and Engineering",
+      period: "2024 – 2028",
+      score: "CGPA: 8.74",
+      highlight: "Pre-final Year • Focus on Systems & Software Engineering",
+      status: "Pursuing",
+    },
+    {
+      institution: "SMBM Public School",
+      location: "Dindigul, Tamil Nadu",
+      degree: "Higher Secondary Certificate (HSC)",
+      period: "Completed: March 2024",
+      score: "Higher Secondary Education",
+      status: "Completed",
+    },
+    {
+      institution: "SMBM Public School",
+      location: "Dindigul, Tamil Nadu",
+      degree: "Secondary School Leaving Certificate (SSLC)",
+      period: "Completed: May 2022",
+      score: "Secondary School Education",
+      status: "Completed",
+    },
   ],
-  Frontend: [
-    { name: "HTML", level: 92 },
-    { name: "CSS", level: 88 },
-    { name: "JavaScript", level: 85 },
-    { name: "React.js", level: 82 },
-  ],
-  Backend: [
-    { name: "Node.js", level: 78 },
-    { name: "Express.js", level: 78 },
-  ],
-  Database: [
-    { name: "MongoDB", level: 76 },
-    { name: "SQL", level: 74 },
-  ],
-  Tools: [
-    { name: "Git", level: 85 },
-    { name: "GitHub", level: 85 },
-    { name: "VS Code", level: 90 },
-  ],
-  "Soft Skills": [
-    { name: "Problem Solving", level: 90 },
-    { name: "Teamwork", level: 85 },
-    { name: "Communication", level: 82 },
-    { name: "Quick Learner", level: 90 },
+  coursework: [
+    "Data Structures & Algorithms",
+    "Object-Oriented Programming",
+    "Database Management Systems",
+    "Operating Systems",
+    "Computer Networks",
+    "Software Engineering",
+    "Artificial Intelligence and Machine Learning",
+    "Web Technologies",
   ],
 };
 
-export const projects = [
+export const skillsData = {
+  highlights: [
+    { label: "Java & Core Programming", value: "2,000+ Lines Code" },
+    { label: "JavaScript & Full-Stack Tech", value: "2,500+ Lines Code" },
+  ],
+  categories: [
+    {
+      name: "Programming Languages",
+      description: "Core algorithmic problem-solving & application foundations",
+      skills: [
+        { name: "Java", isPrimary: true, note: "Primary programming language" },
+        { name: "JavaScript", isPrimary: false, note: "Web & backend scripting" },
+        { name: "C", isPrimary: false, note: "Low-level & systems programming" },
+        { name: "TypeScript", isPrimary: false, note: "Type-safe development" },
+      ],
+    },
+    {
+      name: "Frontend",
+      description: "Modern, responsive, component-driven user interfaces",
+      skills: [
+        { name: "HTML5", isPrimary: false, note: "Semantic structure" },
+        { name: "CSS3", isPrimary: false, note: "Responsive styling & layouts" },
+        { name: "React.js", isPrimary: true, note: "Component architecture & hooks" },
+      ],
+    },
+    {
+      name: "Backend",
+      description: "Scalable REST APIs, business logic & server runtime",
+      skills: [
+        { name: "Node.js", isPrimary: true, note: "Asynchronous event-driven runtime" },
+        { name: "Express.js", isPrimary: false, note: "RESTful API development" },
+      ],
+    },
+    {
+      name: "Database",
+      description: "Data modeling, indexing, relational and NoSQL storage",
+      skills: [
+        { name: "MongoDB", isPrimary: true, note: "NoSQL document storage & aggregation" },
+        { name: "SQL", isPrimary: false, note: "Relational database queries & schemas" },
+      ],
+    },
+    {
+      name: "Developer Tools and Version Control",
+      description: "Workflow optimization, source control & team collaboration",
+      skills: [
+        { name: "Git", isPrimary: true, note: "Version control & branching" },
+        { name: "GitHub", isPrimary: true, note: "Code hosting & CI workflows" },
+      ],
+    },
+  ],
+};
+
+export const projectsData = [
   {
     id: "jobverse",
-    title: "JobVerse – MERN Stack Job Portal",
-    stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT", "bcrypt", "Multer"],
-    short:
-      "Built and deployed a full-stack job portal using the MERN stack that connects candidates with recruiters through a complete job-search and recruitment workflow.",
+    title: "JOBVERSE",
+    category: "Online Job Portal",
+    isFeatured: true,
+    techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "REST API"],
+    description:
+      "Developed a full-stack job portal that enables candidates to search and apply for jobs while recruiters manage job postings and applications through role-based access control.",
     features: [
-      "Candidate & Recruiter authentication",
-      "Search and filter jobs",
-      "Resume upload while applying",
-      "Application status tracking",
-      "Recruiter job posting, editing & management",
-      "Applicant management for recruiters",
-      "JWT authentication & role-based access",
-      "Responsive and modern UI",
+      "Candidate and recruiter workflows with dedicated portals",
+      "Robust job search and multi-criteria application system",
+      "Comprehensive job posting, applicant management, and status tracking",
+      "Secure JWT authentication and bcrypt password encryption",
+      "Granular role-based access control (RBAC)",
+      "MongoDB database management with Mongoose schemas and indexes",
     ],
-    architecture:
-      "Building JobVerse provided practical experience in full-stack development, REST APIs, authentication, database management, file uploads, and frontend-backend integration.",
-    problem:
-      "The project was built to handle a complete hiring workflow from candidate discovery to recruiter management, with a focus on a clean end-to-end experience.",
-    challenges:
-      "Managing authentication, file uploads, role-based flows, and recruiter operations while keeping the app experience responsive and user-friendly.",
-    learnings:
-      "Practical experience with MERN-stack architecture, secure auth flows, file upload handling, and database-driven recruitment workflows.",
-    future: [
-      "Add in-app messaging between recruiters and applicants",
-      "Introduce analytics dashboards for hiring insights",
-      "Improve job recommendation and matching features",
-    ],
-    github: "https://lnkd.in/gMMjfVve",
-    demo: "https://lnkd.in/gHQNvdt6",
-    image: "/assets/projects/bank-management.jpg",
+    liveUrl: "https://job-verse-937a.vercel.app/",
+    githubUrl: "https://github.com/Tharun-S-28/JobVerse",
+    badge: "Featured MERN Project",
+    image: null,
   },
   {
     id: "connectwave",
-    title: "ConnectWave – Instant Messaging Platform",
-    stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.IO"],
-    short:
-      "ConnectWave is a real-time instant messaging platform built to provide a smooth and interactive communication experience with modern chat functionality.",
+    title: "CONNECTWAVE",
+    category: "Real-Time Chat Application",
+    isFeatured: false,
+    techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Socket.IO"],
+    description:
+      "Developed a real-time messaging platform supporting username-based user discovery and instant one-to-one conversations.",
     features: [
-      "Real-time messaging",
-      "User authentication",
-      "Online presence",
-      "Typing indicators",
-      "Read receipts",
-      "Reactions",
-      "Profile discovery",
-      "Responsive chat interactions",
+      "Instant real-time messaging powered by Socket.IO bi-directional websockets",
+      "Live user presence tracking and online/offline status detection",
+      "Real-time typing indicators for fluid messaging UX",
+      "Delivered and read receipts state synchronization",
+      "Interactive emoji and message reaction system",
+      "Theme customization and responsive conversation view",
     ],
-    architecture:
-      "The platform provides real-time communication with modern chat features and a responsive interface designed for smooth user interaction.",
-    problem:
-      "Modern chat apps need fast, interactive communication flows while keeping the experience intuitive and responsive across devices.",
-    challenges:
-      "Synchronizing live updates, message states, and presence indicators while preserving a smooth real-time user experience.",
-    learnings:
-      "Hands-on experience with real-time communication patterns, event-driven backend logic, and interactive frontend state management.",
-    future: [
-      "Add group chat and voice calling",
-      "Enable media sharing and file transfer",
-      "Improve message search and moderation tools",
-    ],
-    github: "https://github.com/Tharun-S-28",
-    demo: "#",
-    image: "/assets/projects/resugenius.jpg",
+    liveUrl: null,
+    githubUrl: "https://github.com/Tharun-S-28",
+    badge: "Real-Time Systems",
+    image: null,
   },
   {
     id: "personal-portfolio",
-    title: "Personal Portfolio",
-    stack: ["React.js", "JavaScript", "HTML", "CSS"],
-    short:
-      "A modern interactive developer portfolio created to showcase my skills, projects, certifications, achievements, education, and development journey.",
+    title: "PERSONAL PORTFOLIO",
+    category: "Developer Portfolio",
+    isFeatured: false,
+    techStack: ["React.js", "Three.js", "CSS3", "JavaScript"],
+    description:
+      "Developed a responsive personal portfolio to showcase projects, technical skills, certifications, and coding achievements.",
     features: [
-      "Responsive portfolio layout",
-      "Smooth animations and scroll interactions",
-      "Project showcase and achievement highlights",
-      "Resume access and networking links",
-      "Interactive custom cursor",
+      "Immersive 3D space scene with scroll-driven camera journey",
+      "Ten structured sections highlighting campus readiness and technical breadth",
+      "Smooth camera transitions and spatial geometry",
+      "Interactive certificate lightbox modal and verified external badges",
+      "Validated contact interface and responsive cross-device layout",
     ],
-    architecture:
-      "The portfolio focuses on responsive design, smooth animations, interactive sections, project showcases, achievement highlights, resume access, and a custom interactive cursor.",
-    problem:
-      "The goal was to create a polished personal portfolio that communicates technical depth while remaining modern and accessible.",
-    challenges:
-      "Balancing animation, readability, and performance while keeping a clean and professional portfolio experience.",
-    learnings:
-      "Improved skills in component design, section storytelling, responsive UI work, and presentation-focused frontend development.",
-    future: [
-      "Add a blog section",
-      "Expand case studies and project write-ups",
-      "Introduce richer motion and portfolio interactions",
-    ],
-    github: "https://github.com/Tharun-S-28",
-    demo: "#",
-    image: "/assets/projects/portfolio.jpg",
+    liveUrl: null,
+    githubUrl: "https://github.com/Tharun-S-28",
+    badge: "Interactive 3D Web",
+    image: null,
   },
 ];
 
-export const achievements = [
+export const achievementsData = [
   {
-    id: "code-combat",
-    medal: "🥇",
-    title: "1st Prize — Code Combat",
-    org: "Kongu Engineering College",
-    date: "2026",
-    description:
-      "Won first place in a competitive coding contest, solving algorithmic problems under time pressure against participants from multiple colleges.",
-    postUrl: "https://www.linkedin.com/posts/tharun-s-287871333_hackerrank-competitivecoding-debugging-ugcPost-7431680698815664128-Jps_/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFP0j0cBtptqb8PwV_K37N1AbUtD8Ax8P6Y",
+    place: "1st Place",
+    placeType: "1st",
+    team: "Duo",
+    event: "Logic Verse (Coding)",
+    college: "SRM Madurai College of Technology",
+    awardBadge: "1st Duo",
+    verifiedUrl: "https://lnkd.in/p/gi76mqrK",
   },
   {
-    id: "biznovexa",
-    medal: "🥈",
-    title: "2nd Prize — BizNovexa Coding Challenge",
-    org: "Ramco Institute of Technology",
-    date: "2026",
-    description:
-      "Secured second place in a coding challenge combining problem-solving speed with solution quality.",
-    postUrl: "https://www.linkedin.com/posts/tharun-s-287871333_programming-teamwork-achievement-ugcPost-7458811922356879361-EFzn/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFP0j0cBtptqb8PwV_K37N1AbUtD8Ax8P6Y",
+    place: "1st Place",
+    placeType: "1st",
+    team: "Duo",
+    event: "Code Combat",
+    college: "Kongu College of Technology",
+    awardBadge: "1st Duo",
+    verifiedUrl: "https://lnkd.in/p/gJ42CqqB",
   },
   {
-    id: "kreativ-hackathon",
-    medal: "🥈",
-    title: "2nd Prize — Kreativ Hackathon",
-    org: "Kamaraj College of Engineering & Technology",
-    date: "2026",
-    description:
-      "Built a working prototype in a time-boxed hackathon, placing second among competing teams for functionality and presentation.",
-    postUrl: "https://www.linkedin.com/posts/tharun-s-287871333_kreativ26-hackathon-thinkandtwist-ugcPost-7430857871237709824-DAxc/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFP0j0cBtptqb8PwV_K37N1AbUtD8Ax8P6Y",
+    place: "2nd Place",
+    placeType: "2nd",
+    team: "Trio",
+    event: "BizNovexa Coding",
+    college: "Ramco Institute of Technology",
+    awardBadge: "2nd Trio",
+    verifiedUrl: "https://lnkd.in/p/geccSQZe",
   },
   {
-    id: "logic-verse",
-    medal: "🥇",
-    title: "1st – Logic Verse",
-    org: "SRM Madurai College of Engineering & Technology",
-    date: "2026",
-    description: "Duo Coding Event · 2 Rounds · HackerRank Final",
-    postUrl: "https://lnkd.in/p/gi76mqrK",
+    place: "2nd Place",
+    placeType: "2nd",
+    team: "Trio",
+    event: "Kreativ Hackathon",
+    college: "Kamaraj College of Technology",
+    awardBadge: "2nd Trio",
+    verifiedUrl: "https://lnkd.in/p/gnma6A7A",
   },
   {
-    id: "think-and-twist",
-    medal: "🥇",
-    title: "1st Prize – Think and Twist",
-    org: "Kamaraj College of Engineering & Technology · 2026",
-    date: "2026",
-    description:
-      "Secured 1st Prize in the Think and Twist logical thinking event at Kamaraj College of Engineering & Technology. The event challenged participants with problem-solving and logical reasoning tasks, providing an opportunity to demonstrate analytical thinking under time constraints.",
-    postUrl: "https://lnkd.in/p/gnma6A7A",
+    place: "1st Place",
+    placeType: "1st",
+    team: "Trio",
+    event: "Think and Twist",
+    college: "Kamaraj College of Technology",
+    awardBadge: "1st Trio",
+    verifiedUrl: null,
   },
   {
-    id: "code-insight",
-    medal: "🥇",
-    title: "1st – Code Insight",
-    org: "KSR College of Engineering & Technology · 2026",
-    date: "2026",
-    description:
-      "Secured 1st Prize in the Code Insight solo coding event at KSR College of Engineering & Technology. Successfully completed two rounds of coding challenges, demonstrating problem-solving ability, logical thinking, and coding skills.",
-    postUrl: "https://lnkd.in/p/g3Z4bMqS",
+    place: "1st Place",
+    placeType: "1st",
+    team: "Solo",
+    event: "Code Insight",
+    college: "KSR College of Technology",
+    awardBadge: "1st Solo",
+    verifiedUrl: "https://lnkd.in/p/g3Z4bMqS",
   },
   {
-    id: "blind-coding",
-    medal: "🥇",
-    title: "1st – Blind Coding",
-    org: "Sri Vidya College of Engineering & Technology · 2026",
-    date: "2026",
-    description:
-      "Secured 1st Prize in the Blind Coding event at Sri Vidya College of Engineering & Technology as part of a trio team. The event tested coding ability and problem-solving skills without relying on the usual visual coding environment.",
-    postUrl: "https://lnkd.in/p/gRsi-pch",
+    place: "1st Place",
+    placeType: "1st",
+    team: "Trio",
+    event: "Blind Coding",
+    college: "Sri Vidya College of Technology",
+    awardBadge: "1st Trio",
+    verifiedUrl: "https://lnkd.in/p/gRsi-pch",
+  },
+  {
+    place: "1st Place",
+    placeType: "1st",
+    team: "Duo",
+    event: "Code Battle",
+    college: "K. Ramakrishnan College of Technology",
+    awardBadge: "1st Duo",
+    verifiedUrl: null,
   },
 ];
 
-export const codingProfiles = [
+export const achievementsStats = {
+  totalWins: 8,
+  firstPlaceWins: 6,
+  secondPlaceWins: 2,
+};
+
+export const codingProfilesData = [
   {
     id: "leetcode",
     platform: "LeetCode",
-    stats: [
-      { label: "Problems Solved", value: "400+" },
-      { label: "Days Streak", value: "200 Days" },
+    username: "_Tharun_S",
+    profileUrl: "https://leetcode.com/u/_Tharun_S/",
+    metrics: [
+      { label: "DSA Problems Solved", value: "400+" },
+      { label: "Achievement Badge", value: "200 Days Badge (2026)" },
     ],
-    url: "https://leetcode.com/u/_Tharun_S/",
+    description: "Consistent problem solver tackling arrays, trees, dynamic programming, graphs, and system data structures.",
+    themeColor: "#FFA116",
+    accentGlow: "rgba(255, 161, 22, 0.2)",
   },
   {
     id: "codechef",
     platform: "CodeChef",
-    stats: [
+    username: "tharunth",
+    profileUrl: "https://www.codechef.com/users/tharunth",
+    metrics: [
       { label: "Problems Solved", value: "100+" },
-      { label: "Badge", value: "Bronze Badge" },
+      { label: "Honor Badge", value: "Bronze Badge" },
     ],
-    url: "https://www.codechef.com/users/tharunth",
-  },
-  {
-    id: "github",
-    platform: "GitHub",
-    stats: [],
-    url: "https://github.com/Tharun-S-28",
+    description: "Active competitive programming participant sharpening speed, precision, and edge-case handling.",
+    themeColor: "#A36B4F",
+    accentGlow: "rgba(163, 107, 79, 0.25)",
   },
 ];
 
-export const internships = [
+export const internshipsData = [
   {
-    id: "codsoft",
-    company: "CodSoft",
-    role: "Web Development Intern",
-    duration: "1 Month",
-    responsibilities: [
-      "Built responsive UI components for client-facing web pages",
-      "Fixed cross-browser layout issues and improved load performance",
-      "Collaborated on task tracking via GitHub issues",
-    ],
-    skills: ["HTML", "CSS", "JavaScript", "React"],
-    certificateUrl: "https://www.linkedin.com/posts/tharun-s-287871333_webdevelopment-frontenddevelopment-html-share-7438468975782653952-VbG_/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFP0j0cBtptqb8PwV_K37N1AbUtD8Ax8P6Y",
+    company: "CODSOFT",
+    position: "Web Development Intern",
+    duration: "January – February 2026",
+    workMode: "Remote",
+    description:
+      "Developed responsive web applications using HTML, CSS, and JavaScript, including a portfolio website, landing page, and calculator.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    verifiedUrl: "https://lnkd.in/p/gVRyRmpt",
+    certificateImage: "/assets/certificates/codsoft-certificate.jpg",
   },
   {
-    id: "codealpha",
-    company: "CodeAlpha",
-    role: "Java Programming Intern",
-    duration: "1 Month",
-    responsibilities: [
-      "Implemented core Java modules following OOP principles",
-      "Wrote unit tests to validate business logic",
-      "Refactored legacy code for readability and maintainability",
-    ],
-    skills: ["Java", "OOP", "Data Structures"],
-    certificateUrl: "https://www.linkedin.com/posts/tharun-s-287871333_java-internship-codealpha-ugcPost-7423955629838512128-GEEP/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFP0j0cBtptqb8PwV_K37N1AbUtD8Ax8P6Y",
+    company: "CODEALPHA",
+    position: "Java Programming Intern",
+    duration: "February – March 2026",
+    workMode: "Remote",
+    description:
+      "Strengthened Core Java and OOP skills by developing programming solutions and applying object-oriented concepts to practical coding tasks.",
+    technologies: ["Java", "OOP", "Data Structures", "Algorithm Design"],
+    verifiedUrl:
+      "https://www.linkedin.com/posts/tharun-s-287871333_java-internship-codealpha-activity-7423955630740398081-sdJs?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFP0j0cBtptqb8PwV_K37N1AbUtD8Ax8P6Y",
+    certificateImage: "/assets/certificates/codealpha-certificate.jpg",
   },
 ];
 
-export const certificates = [
+export const certificatesData = [
   {
     id: "oracle-java",
     title: "Oracle Java Certification",
+    credentialScope: "Core Java Fundamentals and OOPS Concepts",
     issuer: "Oracle",
-    highlights: [
-      "Covers core Java programming concepts and fundamentals.",
-      "Builds understanding of object-oriented programming and Java syntax.",
-      "Strengthens problem-solving and basic Java development skills.",
-    ],
+    image: "/assets/certificates/oracle-java.jpg",
+    hasImage: true,
   },
   {
     id: "web-dev",
     title: "Web Development Certification",
-    issuer: "Course Certification",
-    highlights: [
-      "Covers the fundamentals of HTML, CSS, and JavaScript.",
-      "Focuses on building structured, styled, and interactive web pages.",
-      "Strengthens frontend development and responsive design skills.",
-    ],
+    credentialScope: "HTML, CSS & JavaScript",
+    issuer: "Web Development Course",
+    image: "/assets/certificates/web-dev.jpg",
+    hasImage: true,
   },
   {
     id: "aws-academy",
     title: "AWS Academy",
-    issuer: "Generative AI Foundations",
-    highlights: [
-      "Introduces fundamental concepts of generative artificial intelligence.",
-      "Covers basic AI concepts, applications, and generative AI technologies.",
-      "Builds foundational knowledge for working with AI-based solutions.",
-    ],
+    credentialScope: "Generative AI Foundations and AI Workflow",
+    issuer: "AWS Academy",
+    image: "/assets/certificates/ai-ml.jpg",
+    hasImage: true,
   },
   {
     id: "snowflake",
     title: "Snowflake Certifications",
-    issuer: "Data Warehousing, Data Lakes & Fundamentals",
-    highlights: [
-      "Covers fundamental concepts of modern data warehousing.",
-      "Introduces data lakes and Snowflake data platform concepts.",
-      "Builds understanding of cloud-based data storage and analytics.",
-    ],
+    credentialScope: "Data Warehousing, Data Lakes & Fundamentals",
+    issuer: "Snowflake",
+    image: null,
+    hasImage: false,
   },
   {
     id: "mongodb",
     title: "MongoDB Certifications",
-    issuer: "MongoDB Essentials, Building AI Agent",
-    highlights: [
-      "Covers MongoDB fundamentals and document-based database concepts.",
-      "Introduces practical concepts for working with MongoDB databases.",
-      "Includes foundational concepts related to building AI agents with MongoDB.",
-    ],
+    credentialScope: "MongoDB Essentials, Building AI Agents",
+    issuer: "MongoDB University",
+    image: null,
+    hasImage: false,
   },
 ];
 
-export const education = [
-  {
-    id: "be-cse",
-    level: "B.E. Computer Science & Engineering",
-    institute: "PSNA College of Engineering and Technology",
-    grade: "CGPA: 8.75",
-    year: "2022 – 2026",
-  },
-  {
-    id: "hsc",
-    level: "HSC",
-    institute: "SMBM Public School",
-    grade: "75%",
-    year: "2024",
-  },
-  {
-    id: "sslc",
-    level: "SSLC",
-    institute: "SMBM Public School",
-    grade: "85%",
-    year: "2022",
-  },
-];
-
-export const stats = [
-  { label: "Problems Solved", value: 400, suffix: "+" },
-  { label: "LeetCode Streak", value: 200, suffix: " Days" },
-  { label: "CGPA", value: 8.75, suffix: "" },
-  { label: "Projects Built", value: 3, suffix: "+" },
-  { label: "Internships", value: 2, suffix: "" },
-  { label: "Competition Wins", value: 7, suffix: "" },
-];
-
-export const navLinks = [
+export const navSections = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },

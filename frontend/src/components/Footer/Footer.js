@@ -1,15 +1,11 @@
-import { navLinks, profile } from "../../data/portfolioData";
+import React from "react";
+import { navSections, profile } from "../../data/portfolioData";
+import { Code2, Mail, Phone } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "../Icons";
 import "./Footer.css";
 
-const socialIcons = [
-  { key: "github", label: "GitHub", glyph: "GH" },
-  { key: "linkedin", label: "LinkedIn", glyph: "in" },
-  { key: "leetcode", label: "LeetCode", glyph: "LC" },
-  { key: "codechef", label: "CodeChef", glyph: "CC" },
-];
-
 export default function Footer() {
-  const year = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
   const handleNavClick = (id) => {
     const el = document.getElementById(id);
@@ -17,47 +13,95 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer">
-      <div className="container footer-inner">
-        <div className="footer-brand">
-          <span className="navbar-logo-bracket">&lt;</span>
-          {profile.name}
-          <span className="navbar-logo-bracket">/&gt;</span>
-          <p>{profile.tagline}</p>
+    <footer className="footer-container">
+      <div className="container footer-grid">
+        <div className="footer-brand-col">
+          <button
+            className="footer-logo"
+            onClick={() => handleNavClick("home")}
+          >
+            <span className="logo-bracket">&lt;</span>
+            <span className="logo-title">{profile.name}</span>
+            <span className="logo-bracket">/&gt;</span>
+          </button>
+          <p className="footer-college-text">{profile.college}</p>
+          <p className="footer-headline-text">
+            &ldquo;{profile.headline}&rdquo;
+          </p>
         </div>
 
-        <div className="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            {navLinks.map((l) => (
-              <li key={l.id}>
-                <button onClick={() => handleNavClick(l.id)}>{l.label}</button>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="footer-social">
-          <h4>Elsewhere</h4>
-          <div className="hero-social">
-            {socialIcons.map((s) => (
-              <a
-                key={s.key}
-                href={profile.social[s.key]}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={s.label}
-                className="hero-social-icon"
+        <div className="footer-links-col">
+          <h4 className="footer-col-title">Navigation</h4>
+          <div className="footer-nav-links">
+            {navSections.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => handleNavClick(link.id)}
+                className="footer-nav-btn"
               >
-                {s.glyph}
-              </a>
+                {link.label}
+              </button>
             ))}
+          </div>
+        </div>
+
+        <div className="footer-social-col">
+          <h4 className="footer-col-title">Connect &amp; Recruit</h4>
+          <div className="footer-social-list">
+            <a
+              href={profile.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-item"
+            >
+              <GithubIcon size={16} />
+              <span>GitHub</span>
+            </a>
+            <a
+              href={profile.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-item"
+            >
+              <LinkedinIcon size={16} />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href={profile.social.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-item"
+            >
+              <Code2 size={16} />
+              <span>LeetCode</span>
+            </a>
+            <a
+              href={`mailto:${profile.email}`}
+              className="footer-social-item"
+            >
+              <Mail size={16} />
+              <span>Email</span>
+            </a>
+            <a
+              href={`tel:${profile.phone.replace(/\s+/g, "")}`}
+              className="footer-social-item"
+            >
+              <Phone size={16} />
+              <span>Phone</span>
+            </a>
           </div>
         </div>
       </div>
 
-      <div className="footer-bottom">
-        <p>© {year} {profile.name}. Built from scratch with React, no UI frameworks.</p>
+      <div className="footer-bottom-bar">
+        <div className="container footer-bottom-inner">
+          <p className="footer-copy">
+            &copy; {currentYear} {profile.name} • Designed &amp; Engineered with React &amp; Three.js
+          </p>
+          <p className="footer-tag">
+            Engineered for Campus Placements • Clean CS Fundamentals
+          </p>
+        </div>
       </div>
     </footer>
   );
