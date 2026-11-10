@@ -5,19 +5,22 @@ export const profile = {
   name: "THARUN S",
   roles: [
     "Computer Science Engineering Student",
-    "Full-Stack Developer",
+    "MERN Stack Developer",
     "Java Programmer",
     "Problem Solver",
   ],
   headline: "Building Ideas Into Real-World Digital Experiences.",
   tagline:
-    "I build full-stack web applications, solve algorithmic problems, and continuously improve my engineering skills through projects, competitive coding, and hands-on development.",
+    "I build full-stack web applications, solve complex algorithmic problems, and continuously engineer high-performance systems with modern MERN stack and Java foundations.",
   college: "PSNA College of Engineering and Technology (PSNACET), Dindigul, Tamil Nadu",
+  degree: "B.E. Computer Science and Engineering (2024–2028)",
   cgpa: "8.74",
   resumeUrl: "/resume/Tharun_S_Resume.pdf",
   photo: "/assets/profile.jpg",
   email: "tharunjeyaknp@gmail.com",
   phone: "+91 7305865241",
+  whatsappNumber: "+91 7305865241",
+  whatsappUrl: "https://wa.me/917305865241?text=Hi%20Tharun%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect.",
   location: "Tamil Nadu, India",
   social: {
     github: "https://github.com/Tharun-S-28",
@@ -29,10 +32,19 @@ export const profile = {
   },
 };
 
+export const statsData = [
+  { id: "leetcode", value: 400, suffix: "+", label: "LeetCode Problems Solved" },
+  { id: "streak", value: 200, suffix: "+", label: "Days Active Coding Streak" },
+  { id: "cgpa", value: "8.74", suffix: "", label: "Current CGPA (PSNACET)" },
+  { id: "wins", value: 7, suffix: " Wins", label: "Hackathon & Coding Contests" },
+  { id: "projects", value: 3, suffix: " Apps", label: "Full-Stack MERN Projects" },
+  { id: "internships", value: 2, suffix: "", label: "Industry Internships Completed" },
+];
+
 export const aboutData = {
   bio: [
-    "I am a motivated Computer Science Engineering student at PSNA College of Engineering and Technology (PSNACET), Dindigul, with a strong passion for programming, algorithmic problem-solving, and full-stack software development.",
-    "I continuously hone my analytical thinking and software craftsmanship through competitive programming, algorithmic problem-solving in Java, and architecting robust web applications with the MERN stack.",
+    "I am a passionate Computer Science Engineering student at PSNA College of Engineering and Technology (PSNACET), Dindigul, specializing in full-stack MERN development and algorithmic problem-solving.",
+    "With a strong foundation in Core Java and modern web architecture, I build scalable applications with high visual velocity, secure authentication, real-time messaging, and efficient databases.",
   ],
   education: [
     {
@@ -41,7 +53,7 @@ export const aboutData = {
       degree: "B.E. in Computer Science and Engineering",
       period: "2024 – 2028",
       score: "CGPA: 8.74",
-      highlight: "Pre-final Year • Focus on Systems & Software Engineering",
+      highlight: "Focus on Systems, Data Structures & Software Engineering",
       status: "Pursuing",
     },
     {
@@ -63,80 +75,102 @@ export const aboutData = {
   ],
   coursework: [
     "Data Structures & Algorithms",
-    "Object-Oriented Programming",
-    "Database Management Systems",
+    "Object-Oriented Programming (OOP)",
+    "Database Management Systems (DBMS)",
     "Operating Systems",
     "Computer Networks",
     "Software Engineering",
     "Artificial Intelligence and Machine Learning",
-    "Web Technologies",
+    "Full-Stack Web Technologies",
   ],
 };
 
-export const skillsData = {
-  highlights: [
-    { label: "Java & Core Programming", value: "2,000+ Lines Code" },
-    { label: "JavaScript & Full-Stack Tech", value: "2,500+ Lines Code" },
-  ],
-  categories: [
-    {
-      name: "Programming Languages",
-      description: "Core algorithmic problem-solving & application foundations",
-      skills: [
-        { name: "Java", isPrimary: true, note: "Primary programming language" },
-        { name: "JavaScript", isPrimary: false, note: "Web & backend scripting" },
-        { name: "C", isPrimary: false, note: "Low-level & systems programming" },
-        { name: "TypeScript", isPrimary: false, note: "Type-safe development" },
-      ],
-    },
-    {
-      name: "Frontend",
-      description: "Modern, responsive, component-driven user interfaces",
-      skills: [
-        { name: "HTML5", isPrimary: false, note: "Semantic structure" },
-        { name: "CSS3", isPrimary: false, note: "Responsive styling & layouts" },
-        { name: "React.js", isPrimary: true, note: "Component architecture & hooks" },
-      ],
-    },
-    {
-      name: "Backend",
-      description: "Scalable REST APIs, business logic & server runtime",
-      skills: [
-        { name: "Node.js", isPrimary: true, note: "Asynchronous event-driven runtime" },
-        { name: "Express.js", isPrimary: false, note: "RESTful API development" },
-      ],
-    },
-    {
-      name: "Database",
-      description: "Data modeling, indexing, relational and NoSQL storage",
-      skills: [
-        { name: "MongoDB", isPrimary: true, note: "NoSQL document storage & aggregation" },
-        { name: "SQL", isPrimary: false, note: "Relational database queries & schemas" },
-      ],
-    },
-    {
-      name: "Developer Tools and Version Control",
-      description: "Workflow optimization, source control & team collaboration",
-      skills: [
-        { name: "Git", isPrimary: true, note: "Version control & branching" },
-        { name: "GitHub", isPrimary: true, note: "Code hosting & CI workflows" },
-      ],
-    },
-  ],
-};
+export const skillsData = [
+  {
+    name: "Java (Core & OOP)",
+    category: "Primary Language",
+    level: "Master",
+    icon: "Code",
+    description: "Algorithmic problem-solving, multithreading, collections framework, and OOP principles.",
+  },
+  {
+    name: "React.js",
+    category: "Frontend Architecture",
+    level: "Master",
+    icon: "Layout",
+    description: "Component architecture, hooks, state management, SPA routing, and responsive UI design.",
+  },
+  {
+    name: "Node.js & Express.js",
+    category: "Backend Engineering",
+    level: "Advanced",
+    icon: "Server",
+    description: "Scalable REST APIs, middleware architectures, asynchronous runtimes, and JWT security.",
+  },
+  {
+    name: "MongoDB & SQL",
+    category: "Database Systems",
+    level: "Advanced",
+    icon: "Database",
+    description: "NoSQL document aggregation, schema modeling with Mongoose, and relational SQL queries.",
+  },
+  {
+    name: "JavaScript & TypeScript",
+    category: "Full-Stack Scripting",
+    level: "Advanced",
+    icon: "FileCode",
+    description: "Modern ES6+ syntax, asynchronous programming, type safety, and DOM manipulation.",
+  },
+  {
+    name: "Data Structures & Algorithms",
+    category: "Computer Science Core",
+    level: "Advanced",
+    icon: "Cpu",
+    description: "400+ problems solved across arrays, dynamic programming, trees, graphs, and greedy algorithms.",
+  },
+  {
+    name: "Socket.IO",
+    category: "Real-Time Systems",
+    level: "Advanced",
+    icon: "Radio",
+    description: "Bi-directional WebSocket communication, live presence, typing events, and instant messaging.",
+  },
+  {
+    name: "C Programming",
+    category: "Systems Programming",
+    level: "Proficient",
+    icon: "Terminal",
+    description: "Low-level memory management, pointers, and foundational computer systems.",
+  },
+  {
+    name: "HTML5 & Modern CSS3",
+    category: "Frontend UI/UX",
+    level: "Master",
+    icon: "Palette",
+    description: "Semantic layouts, responsive flexbox & grid, glassmorphism, and performance optimization.",
+  },
+  {
+    name: "Git & GitHub",
+    category: "Developer Tools",
+    level: "Master",
+    icon: "GitBranch",
+    description: "Version control, branching workflows, collaborative repositories, and code deployment.",
+  },
+];
 
 export const projectsData = [
   {
     id: "jobverse",
     title: "JOBVERSE",
-    category: "Online Job Portal",
+    subtitle: "MERN Stack Online Job Portal",
+    category: "Full-Stack MERN",
     isFeatured: true,
     techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "REST API"],
     description:
       "Developed a full-stack job portal that enables candidates to search and apply for jobs while recruiters manage job postings and applications through role-based access control.",
     features: [
-      "Candidate and recruiter workflows with dedicated portals",
-      "Robust job search and multi-criteria application system",
+      "Candidate and recruiter workflows with dedicated interactive portals",
+      "Robust job search with keyword filtering and multi-criteria application system",
       "Comprehensive job posting, applicant management, and status tracking",
       "Secure JWT authentication and bcrypt password encryption",
       "Granular role-based access control (RBAC)",
@@ -150,15 +184,16 @@ export const projectsData = [
   {
     id: "connectwave",
     title: "CONNECTWAVE",
-    category: "Real-Time Chat Application",
-    isFeatured: false,
+    subtitle: "Real-Time Chat Application",
+    category: "WebSockets & MERN",
+    isFeatured: true,
     techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Socket.IO"],
     description:
       "Developed a real-time messaging platform supporting username-based user discovery and instant one-to-one conversations.",
     features: [
       "Instant real-time messaging powered by Socket.IO bi-directional websockets",
       "Live user presence tracking and online/offline status detection",
-      "Real-time typing indicators for fluid messaging UX",
+      "Real-time typing indicators for fluid messaging user experience",
       "Delivered and read receipts state synchronization",
       "Interactive emoji and message reaction system",
       "Theme customization and responsive conversation view",
@@ -169,23 +204,25 @@ export const projectsData = [
     image: null,
   },
   {
-    id: "personal-portfolio",
-    title: "PERSONAL PORTFOLIO",
-    category: "Developer Portfolio",
-    isFeatured: false,
-    techStack: ["React.js", "Three.js", "CSS3", "JavaScript"],
+    id: "bedvoiceoptimizer",
+    title: "BEDVOICEOPTIMIZER",
+    subtitle: "AI-Based Hospital Bed Allocation System",
+    category: "AI & Healthcare Systems",
+    isFeatured: true,
+    techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Voice Recognition", "AI Algorithms"],
     description:
-      "Developed a responsive personal portfolio to showcase projects, technical skills, certifications, and coding achievements.",
+      "Engineered an AI-powered smart hospital bed allocation and patient triage optimization system integrating voice input processing, patient priority scheduling, and real-time bed tracking.",
     features: [
-      "Immersive 3D space scene with scroll-driven camera journey",
-      "Ten structured sections highlighting campus readiness and technical breadth",
-      "Smooth camera transitions and spatial geometry",
-      "Interactive certificate lightbox modal and verified external badges",
-      "Validated contact interface and responsive cross-device layout",
+      "AI-driven automated priority triage based on patient severity scores",
+      "Hands-free voice-enabled commands and patient intake processing",
+      "Real-time interactive hospital ward & ICU bed occupancy dashboard",
+      "Dynamic allocation algorithms reducing emergency admission wait times",
+      "MongoDB database modeling patient history, bed status, and doctor assignments",
+      "RESTful API architecture with real-time websocket status broadcasts",
     ],
     liveUrl: null,
     githubUrl: "https://github.com/Tharun-S-28",
-    badge: "Interactive 3D Web",
+    badge: "AI Systems Engineering",
     image: null,
   },
 ];
@@ -302,23 +339,25 @@ export const codingProfilesData = [
 
 export const internshipsData = [
   {
+    id: "codsoft",
     company: "CODSOFT",
     position: "Web Development Intern",
     duration: "January – February 2026",
     workMode: "Remote",
     description:
-      "Developed responsive web applications using HTML, CSS, and JavaScript, including a portfolio website, landing page, and calculator.",
+      "Developed responsive web applications using HTML, CSS, and JavaScript, including interactive portfolio architectures, dynamic landing pages, and responsive UI components.",
     technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     verifiedUrl: "https://lnkd.in/p/gVRyRmpt",
     certificateImage: "/assets/certificates/codsoft-certificate.jpg",
   },
   {
+    id: "codealpha",
     company: "CODEALPHA",
     position: "Java Programming Intern",
     duration: "February – March 2026",
     workMode: "Remote",
     description:
-      "Strengthened Core Java and OOP skills by developing programming solutions and applying object-oriented concepts to practical coding tasks.",
+      "Strengthened Core Java and OOP skills by architecting software solutions, multithreaded logic, and applying object-oriented design patterns to real-world coding challenges.",
     technologies: ["Java", "OOP", "Data Structures", "Algorithm Design"],
     verifiedUrl:
       "https://www.linkedin.com/posts/tharun-s-287871333_java-internship-codealpha-activity-7423955630740398081-sdJs?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFP0j0cBtptqb8PwV_K37N1AbUtD8Ax8P6Y",
@@ -370,13 +409,11 @@ export const certificatesData = [
 ];
 
 export const navSections = [
-  { id: "home", label: "Home" },
+  { id: "hero", label: "Home" },
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
+  { id: "experience", label: "Experience" },
   { id: "achievements", label: "Achievements" },
-  { id: "coding-profiles", label: "Coding Profiles" },
-  { id: "internships", label: "Internships" },
-  { id: "certificates", label: "Certificates" },
   { id: "contact", label: "Contact" },
 ];

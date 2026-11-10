@@ -1,108 +1,80 @@
 import React, { useState } from "react";
-import WelcomeScreen from "./components/WelcomeScreen/WelcomeScreen";
-import Loader from "./components/Loader/Loader";
-import ThreeScene from "./components/ThreeScene/ThreeScene";
-import CustomCursor from "./components/CustomCursor/CustomCursor";
-import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import ParticleCanvas from "./components/BackgroundFX/ParticleCanvas";
+import CursorCanvas from "./components/BackgroundFX/CursorCanvas";
+import GlitchLoader from "./components/Loader/GlitchLoader";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
+import Stats from "./components/Stats/Stats";
+import Projects from "./components/Projects/Projects";
 import About from "./components/About/About";
 import Skills from "./components/Skills/Skills";
-import Projects from "./components/Projects/Projects";
+import Internships from "./components/Internships/Internships";
 import Achievements from "./components/Achievements/Achievements";
 import CodingProfiles from "./components/CodingProfiles/CodingProfiles";
-import Internships from "./components/Internships/Internships";
 import Certificates from "./components/Certificates/Certificates";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
-import CyberHUD from "./components/CyberHUD/CyberHUD";
-import HackerTerminal from "./components/HackerTerminal/HackerTerminal";
 
-function App() {
-  const [terminalOpen, setTerminalOpen] = useState(false);
-  const [scanlines, setScanlines] = useState(true);
-  const [hasEntered, setHasEntered] = useState(() => {
-    try {
-      return sessionStorage.getItem("tharun_portfolio_entered") === "true";
-    } catch {
-      return false;
-    }
-  });
-
-  const handleEnterPortfolio = () => {
-    try {
-      sessionStorage.setItem("tharun_portfolio_entered", "true");
-    } catch (e) {
-      // Ignore if sessionStorage is not accessible
-    }
-    setHasEntered(true);
-  };
+export default function App() {
+  const [loading, setLoading] = useState(true);
 
   return (
-    <>
-      {/* Cinematic Portfolio Welcome Screen for first visit in browsing session */}
-      {!hasEntered && <WelcomeScreen onEnter={handleEnterPortfolio} />}
+    <div className="relative isolate min-h-screen text-gray-100 flex flex-col font-sans selection:bg-[#a31515] selection:text-white bg-[#07070a]">
+      {/* 3D WebGL Particle Tunnel Background */}
+      <ParticleCanvas />
 
-      {/* Only display bootloader if user already entered in this session on fresh reload */}
-      {hasEntered && <Loader />}
+      {/* Ambient Red Glowing Orbs */}
+      <div className="ambient pointer-events-none" aria-hidden="true">
+        <i className="o1" />
+        <i className="o3" />
+      </div>
 
-      {/* CRT Scanline Overlay */}
-      {scanlines && <div className="crt-scanlines" />}
+      {/* Interactive Red Spark Cursor Canvas */}
+      <CursorCanvas />
 
-      {/* Immersive 3D Space Scene & Deep Camera Travel */}
-      <ThreeScene />
-      <CustomCursor />
-      <ScrollProgress />
+      {/* Initial Glitch / Intro Loading Screen */}
+      {loading && <GlitchLoader onComplete={() => setLoading(false)} />}
 
-      <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
+      {/* Floating Glass Navigation Bar */}
+      <Navbar />
 
-      <main style={{ position: "relative", zIndex: 1 }}>
-        {/* Section 1: Home */}
-        <Hero onOpenTerminal={() => setTerminalOpen(true)} />
+      {/* Main Portfolio Sections */}
+      <main className="relative z-10 w-full flex-1">
+        {/* Section 1: Hero */}
+        <Hero />
 
-        {/* Section 2: About (with Education & Coursework) */}
-        <About />
+        {/* Section 2: Key Metrics & Statistics Panel */}
+        <Stats />
 
-        {/* Section 3: Skills */}
-        <Skills />
-
-        {/* Section 4: Projects */}
+        {/* Section 3: Featured Works & Projects */}
         <Projects />
 
-        {/* Section 5: Achievements */}
-        <Achievements />
+        {/* Section 4: Story & Academic Foundation */}
+        <About />
 
-        {/* Section 6: Coding Profiles */}
-        <CodingProfiles />
+        {/* Section 5: Technical Arsenal & Skills Matrix */}
+        <Skills />
 
-        {/* Section 7: Internships */}
+        {/* Section 6: Professional Experience & Internships */}
         <Internships />
 
-        {/* Section 8: Certificates */}
+        {/* Section 7: Competitive Programming & Hackathon Honors */}
+        <Achievements />
+
+        {/* Section 8: Coding Profiles (LeetCode, CodeChef) */}
+        <CodingProfiles />
+
+        {/* Section 9: Verified Certificates & Accreditations */}
         <Certificates />
 
-        {/* Section 9: Contact */}
+        {/* Section 10: Get In Touch (WhatsApp & Glass Contact Form) */}
         <Contact />
       </main>
 
-      {/* Floating Cyber Telemetry & Terminal Controls */}
-      <CyberHUD
-        onOpenTerminal={() => setTerminalOpen(true)}
-        scanlines={scanlines}
-        onToggleScanlines={() => setScanlines((s) => !s)}
-      />
-
-      {/* Interactive Cyber Command Console */}
-      <HackerTerminal
-        isOpen={terminalOpen}
-        onClose={() => setTerminalOpen(false)}
-      />
-
-      <Footer />
-      <ScrollToTop />
-    </>
+      {/* Footer */}
+      <div className="relative z-10">
+        <Footer />
+      </div>
+    </div>
   );
 }
-
-export default App;

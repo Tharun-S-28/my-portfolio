@@ -1,106 +1,96 @@
 import React from "react";
-import { navSections, profile } from "../../data/portfolioData";
-import { Code2, Mail, Phone } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "../Icons";
+import { ArrowUp, Mail } from "lucide-react";
+import { GithubIcon as Github, LinkedinIcon as Linkedin } from "../Icons";
+import { profile } from "../../data/portfolioData";
 import "./Footer.css";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const handleNavClick = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer className="footer-container">
-      <div className="container footer-grid">
-        <div className="footer-brand-col">
-          <button
-            className="footer-logo"
-            onClick={() => handleNavClick("home")}
+    <footer className="glass-bar w-full text-white py-12 px-4 md:px-12 lg:px-16 border-t border-white/10 relative z-20">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        {/* Brand */}
+        <div className="flex flex-col items-center md:items-start gap-1">
+          <a
+            href="#hero"
+            className="text-xl sm:text-2xl font-black tracking-tight uppercase flex items-center group"
           >
-            <span className="logo-bracket">&lt;</span>
-            <span className="logo-title">{profile.name}</span>
-            <span className="logo-bracket">/&gt;</span>
-          </button>
-          <p className="footer-college-text">{profile.college}</p>
-          <p className="footer-headline-text">
-            &ldquo;{profile.headline}&rdquo;
+            <span className="text-red-600 drop-shadow-[0_0_10px_rgba(220,38,38,0.8)] mr-0.5">
+              T
+            </span>
+            <span className="group-hover:text-red-500 transition-colors">
+              HARUN S.
+            </span>
+          </a>
+          <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold">
+            B.E. Computer Science &amp; Engineering • PSNACET
           </p>
         </div>
 
-        <div className="footer-links-col">
-          <h4 className="footer-col-title">Navigation</h4>
-          <div className="footer-nav-links">
-            {navSections.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className="footer-nav-btn"
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="footer-social-col">
-          <h4 className="footer-col-title">Connect &amp; Recruit</h4>
-          <div className="footer-social-list">
+        {/* Social Icons & Copyright */}
+        <div className="flex flex-col items-center gap-3 text-center">
+          <div className="flex items-center gap-3">
             <a
-              href={profile.social.github}
+              href="https://github.com/Tharun-S-28"
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-social-item"
+              className="glass-chip p-2.5 rounded-full text-gray-300 hover:text-white hover:border-red-500 transition-colors"
+              aria-label="GitHub Profile"
             >
-              <GithubIcon size={16} />
-              <span>GitHub</span>
+              <Github className="w-4 h-4" />
             </a>
             <a
-              href={profile.social.linkedin}
+              href="https://www.linkedin.com/in/tharun-s-287871333/"
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-social-item"
+              className="glass-chip p-2.5 rounded-full text-gray-300 hover:text-white hover:border-red-500 transition-colors"
+              aria-label="LinkedIn Profile"
             >
-              <LinkedinIcon size={16} />
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href={profile.social.leetcode}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-social-item"
-            >
-              <Code2 size={16} />
-              <span>LeetCode</span>
+              <Linkedin className="w-4 h-4" />
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className="footer-social-item"
+              className="glass-chip p-2.5 rounded-full text-gray-300 hover:text-white hover:border-red-500 transition-colors"
+              aria-label="Send Email"
             >
-              <Mail size={16} />
-              <span>Email</span>
-            </a>
-            <a
-              href={`tel:${profile.phone.replace(/\s+/g, "")}`}
-              className="footer-social-item"
-            >
-              <Phone size={16} />
-              <span>Phone</span>
+              <Mail className="w-4 h-4" />
             </a>
           </div>
-        </div>
-      </div>
 
-      <div className="footer-bottom-bar">
-        <div className="container footer-bottom-inner">
-          <p className="footer-copy">
-            &copy; {currentYear} {profile.name} • Designed &amp; Engineered with React &amp; Three.js
+          <p className="text-[11px] text-gray-500 font-bold uppercase tracking-widest">
+            © {new Date().getFullYear()} THARUN S. ALL RIGHTS RESERVED.
           </p>
-          <p className="footer-tag">
-            Engineered for Campus Placements • Clean CS Fundamentals
-          </p>
+        </div>
+
+        {/* Section Quick Links & Top Button */}
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-gray-400 uppercase tracking-widest font-bold">
+          <a href="#projects" className="hover:text-red-500 transition-colors">
+            Projects
+          </a>
+          <a href="#about" className="hover:text-red-500 transition-colors">
+            About
+          </a>
+          <a href="#skills" className="hover:text-red-500 transition-colors">
+            Skills
+          </a>
+          <a href="#internships" className="hover:text-red-500 transition-colors">
+            Experience
+          </a>
+          <a href="#contact" className="hover:text-red-500 transition-colors">
+            Contact
+          </a>
+
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="glass-chip p-2 rounded-full text-gray-300 hover:text-white hover:border-red-500 transition-colors ml-2"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="w-4 h-4 text-red-500" />
+          </button>
         </div>
       </div>
     </footer>

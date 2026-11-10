@@ -1,120 +1,146 @@
-import { useEffect, useState } from "react";
-import { navSections, profile } from "../../data/portfolioData";
-import { Terminal } from "lucide-react";
-import CyberText from "../CyberText/CyberText";
-import "./Navbar.css";
+import React, { useEffect, useState } from "react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
-export default function Navbar({ onOpenTerminal }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("home");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    const sections = navSections
-      .map((l) => document.getElementById(l.id))
-      .filter(Boolean);
+    const sectionIds = [
+      "hero",
+      "projects",
+      "about",
+      "skills",
+      "internships",
+      "achievements",
+      "certificates",
+      "contact",
+    ];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -55% 0px" }
-    );
+    const handleScrollSpy = () => {
+      const scrollPos = window.scrollY + 200;
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(sectionIds[i]);
+          break;
+        }
+      }
+    };
 
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    handleScrollSpy();
+    return () => window.removeEventListener("scroll", handleScrollSpy);
   }, []);
 
-  const handleNavClick = (id) => {
-    setOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const navLinks = [
+    { label: "Projects", href: "#projects", id: "projects" },
+    { label: "About", href: "#about", id: "about" },
+    { label: "Skills", href: "#skills", id: "skills" },
+    { label: "Experience", href: "#internships", id: "internships" },
+    { label: "Achievements", href: "#achievements", id: "achievements" },
+    { label: "Certificates", href: "#certificates", id: "certificates" },
+    { label: "Contact", href: "#contact", id: "contact" },
+  ];
 
   return (
-    <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
-      <div className="container navbar-inner">
-        <button
-          className="navbar-logo"
-          onClick={() => handleNavClick("home")}
-          aria-label="Scroll to top"
+    <header className="fixed top-0 left-0 w-full z-50 px-3 md:px-6 pt-3 pointer-events-none">
+      <div
+        className={`glass max-w-7xl mx-auto rounded-2xl px-5 md:px-8 flex items-center justify-between transition-all duration-300 pointer-events-auto ${
+          scrolled ? "py-2.5 !bg-[#111113]/85 shadow-2xl backdrop-blur-xl border border-white/10" : "py-3.5 bg-[#0e0e11]/70"
+        }`}
+      >
+        {/* Brand Logo */}
+        <a
+          href="#hero"
+          className="text-white text-xl md:text-2xl font-black tracking-tight uppercase group flex items-center"
         >
-          <span className="navbar-logo-bracket">&lt;</span>
-          <CyberText text="THARUN S" className="navbar-logo-text" />
-          <span className="navbar-logo-bracket">/&gt;</span>
-        </button>
+          <span className="text-red-600 drop-shadow-[0_0_10px_rgba(220,38,38,0.8)] mr-0.5">
+            T
+          </span>
+          <span className="group-hover:text-red-500 transition-colors duration-300">
+            HARUN S.
+          </span>
+        </a>
 
-        <nav
-          className={`navbar-links ${open ? "navbar-links-open" : ""}`}
-          aria-label="Main Navigation"
-        >
-          {navSections.map((link) => (
-            <button
-              key={link.id}
-              className={`navbar-link ${active === link.id ? "navbar-link-active" : ""}`}
-              onClick={() => handleNavClick(link.id)}
-            >
-              {link.label}
-            </button>
-          ))}
-          <a
-            href={profile.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="navbar-resume-btn"
-            download="Tharun_S_Resume.pdf"
-          >
-            Resume
-          </a>
-
-          {onOpenTerminal && (
-            <button
-              className="navbar-terminal-btn"
-              onClick={onOpenTerminal}
-              title="Open Hacker Terminal Console [~]"
-            >
-              <Terminal size={14} />
-              <span>&gt;_ CLI</span>
-            </button>
-          )}
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                className={`relative text-xs md:text-sm font-bold uppercase tracking-[0.15em] transition-colors duration-300 group py-1 ${
+                  isActive ? "text-white" : "text-gray-400 hover:text-white"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-red-600 transition-all duration-300 ease-out shadow-[0_0_8px_rgba(220,38,38,0.8)] ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </nav>
 
-        <div className="navbar-actions">
-          {onOpenTerminal && (
-            <button
-              className="navbar-terminal-btn"
-              onClick={onOpenTerminal}
-              style={{ marginRight: "6px" }}
-              title="Open CLI"
-            >
-              <span>&gt;_</span>
-            </button>
-          )}
-          <button
-            className={`navbar-burger ${open ? "navbar-burger-open" : ""}`}
-            onClick={() => setOpen((o) => !o)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={open}
+        {/* Action Button & Mobile Toggle */}
+        <div className="flex items-center gap-3">
+          <a
+            href="#contact"
+            className="glass-red hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-white text-xs font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(216,30,47,0.4)] hover:shadow-[0_0_30px_rgba(255,18,56,0.7)] transition-all duration-300 hover:scale-105"
           >
-            <span />
-            <span />
-            <span />
+            <span>Let's Talk</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden glass-chip p-2 rounded-xl text-gray-200 hover:text-white"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden mt-2 glass max-w-7xl mx-auto rounded-2xl p-5 border border-white/10 shadow-2xl backdrop-blur-2xl pointer-events-auto animate-fadeIn">
+          <div className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-bold uppercase tracking-widest text-gray-300 hover:text-red-500 py-2 border-b border-white/5 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="glass-red text-center py-3 rounded-xl text-white text-xs font-bold uppercase tracking-wider mt-2 shadow-[0_0_20px_rgba(216,30,47,0.5)]"
+            >
+              Let's Talk
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
